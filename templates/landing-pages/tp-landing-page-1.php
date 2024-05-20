@@ -25,11 +25,18 @@ get_header();
             // Retrieve the brand logo from the brand post meta
             $brand_logo_id = get_post_meta($associated_brand_id, 'brand_logo', true);
 
+            // Get color values from brand post meta
+            $primary_color = get_post_meta($associated_brand_id, 'primary_color', true);
+            $secondary_color = get_post_meta($associated_brand_id, 'secondary_color', true);
+            $tertiary_color = get_post_meta($associated_brand_id, 'tertiary_color', true);
+            $quaternary_color = get_post_meta($associated_brand_id, 'quaternary_color', true);
+            $quinary_color = get_post_meta($associated_brand_id, 'quinary_color', true);
+
             echo '<div class="brand-info">';
 
             // Display the brand name as an h2
             if ($brand_name) {
-                echo '<h2>' . esc_html($brand_name) . '</h2>';
+                echo '<h2 style="color: ' . esc_attr($primary_color) . ';">' . esc_html($brand_name) . '</h2>';
             }
 
             if ($brand_logo_id) {
@@ -44,7 +51,16 @@ get_header();
                 echo 'No brand logo found.';
             }
 
-            echo '</div>';
+            echo '</div>'; // .brand-info
+
+            // Display headings with brand colors
+            echo '<div class="brand-headings">';
+            echo '<h1 style="color: ' . esc_attr($primary_color) . ';">Heading 1</h1>';
+            echo '<h2 style="color: ' . esc_attr($secondary_color) . ';">Heading 2</h2>';
+            echo '<h3 style="color: ' . esc_attr($tertiary_color) . ';">Heading 3</h3>';
+            echo '<h4 style="color: ' . esc_attr($quaternary_color) . ';">Heading 4</h4>';
+            echo '<h5 style="color: ' . esc_attr($quinary_color) . ';">Heading 5</h5>';
+            echo '</div>'; // .brand-headings
         } else {
             echo 'No associated brand.';
         }
