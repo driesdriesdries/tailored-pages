@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <div id="primary" class="content-area">
-    <main id="main" class="site-main">
+    <main id="main" class="site-main tp-landing-page1">
         <?php
         // Get the associated brand ID from post meta
         $associated_brand_ids = get_post_meta(get_the_ID(), 'associated_brand', true);

@@ -20,6 +20,18 @@ function tp_create_parent_menu() {
 }
 add_action( 'admin_menu', 'tp_create_parent_menu' );
 
+// Enqueue the compiled CSS file
+function tp_enqueue_styles() {
+    wp_enqueue_style(
+        'tailored-pages-styles',
+        plugins_url('dist/css/style.css', __FILE__),
+        array(),
+        filemtime(plugin_dir_path(__FILE__) . 'dist/css/style.css')
+    );
+}
+add_action('wp_enqueue_scripts', 'tp_enqueue_styles');
+
+
 // Register Custom Post Types
 function tp_register_custom_post_types() {
 
