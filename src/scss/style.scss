@@ -1,3 +1,12 @@
 .tp-landing-page1 {
-    background-color: rgb(227, 227, 226);
+    background-color: rgb(10, 95, 129);
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    .navbar-section {
+        img {
+            height: 75px;
+        }
+    }
 }
