@@ -1,14 +1,58 @@
 .tp-landing-page1 {
-    background-color: rgb(10, 95, 129);
+    // background-color: rgb(10, 95, 129);
     max-width: 1200px;
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: orange;
+    section {
+        border: 1px solid crimson;
+    }
     .navbar-section {
         background-color: orangered;
         img {
             height: 75px;
         }
+    }
+    .hero-section {
+        background-color: indianred;
+    }
+    .usp-section {
+        background-color: aliceblue;
+    }
+    .features-section {
+        background-color: aqua;
+    }
+    .testimonial-section {
+        background-color: azure;
+    }
+    .case-studies-section {
+        background-color: greenyellow;
+    }
+    .faq-section {
+        background-color: yellow;
+    }
+    .video-section {
+        background-color: red;
+    }
+    .about-us-section {
+        background-color: blue;
+    }
+    .media-mentions-section {
+        background-color: blueviolet;
+    }
+    .cta-section {
+        background-color: chocolate;
+    }
+    .newsletter-section {
+        background-color: bisque;
+    }
+    .contact-section {
+        background-color: pink;
+    }
+    .social-proof-section {
+        background-color: burlywood;
+    }
+    .footer-section {
+        background-color: cadetblue;
     }
 }

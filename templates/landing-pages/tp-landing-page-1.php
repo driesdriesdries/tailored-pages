@@ -55,6 +55,71 @@ get_header();
             </div>
         </section>
 
+        <!-- Unique Selling Points -->
+        <section class="usp-section">
+            <h1>Unique selling points content</h1>
+        </section>
+
+        <!-- Features/Benefits -->
+        <section class="features-section">
+            <h1>Features and benefits content</h1>
+        </section>
+
+        <!-- Testimonial Area -->
+        <section class="testimonial-section">
+            <h1>Testimonials content</h1>
+        </section>
+
+        <!-- Case Studies/Success Stories -->
+        <section class="case-studies-section">
+            <h1>Case studies content</h1>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h1>FAQ content</h1>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <h1>Video content</h1>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about-us-section">
+            <h1>About us content</h1>
+        </section>
+
+        <!-- Media Mentions/Trust Badges -->
+        <section class="media-mentions-section">
+            <h1>Media mentions and trust badges</h1>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section class="cta-section">
+            <h1>Call-to-action content</h1>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <h1>Newsletter signup form</h1>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="contact-section">
+            <h1>Contact information content</h1>
+        </section>
+
+        <!-- Social Proof Section -->
+        <section class="social-proof-section">
+            <h1>Additional social proof</h1>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer-section">
+            <h1>Footer content</h1>
+        </section>
+
     </main><!-- #main -->
 </div><!-- #primary -->
 
