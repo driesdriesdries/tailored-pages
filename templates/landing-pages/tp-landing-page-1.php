@@ -24,6 +24,19 @@ get_header();
         $brand_logo_url = '';
         $brand_logo_alt = '';
 
+        // Initialize brand colors array
+        $brand_colors = [];
+
+        // Check if the associated brand ID exists
+        if ($associated_brand_id) {
+            // Retrieve brand colors
+            $brand_colors['primary_color'] = get_post_meta($associated_brand_id, 'primary_color', true);
+            $brand_colors['secondary_color'] = get_post_meta($associated_brand_id, 'secondary_color', true);
+            $brand_colors['tertiary_color'] = get_post_meta($associated_brand_id, 'tertiary_color', true);
+            $brand_colors['quaternary_color'] = get_post_meta($associated_brand_id, 'quaternary_color', true);
+            $brand_colors['quinary_color'] = get_post_meta($associated_brand_id, 'quinary_color', true);
+        }
+
         if ($associated_brand_id) {
             // Retrieve the brand name (post title)
             $brand_name = get_the_title($associated_brand_id);
@@ -98,20 +111,24 @@ get_header();
         <!-- Call-to-Action Section -->
         <?php
         // Check if the CTA section is enabled
-        $enable_cta_section = get_post_meta(get_the_ID(), 'enable_cta_section', true);
+$enable_cta_section = get_post_meta(get_the_ID(), 'enable_cta_section', true);
 
-        if ($enable_cta_section) {
-            // Get the CTA section heading from post meta
-            $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
-        ?>
-        <section class="cta-section">
-            <div class="content">
-            <h2><?php echo esc_html($cta_section_heading); ?></h2>
-                <p>Join thousands of satisfied customers who have transformed their businesses with our solutions. Take the first step towards achieving your goals today.</p>
-                <a href="#">Find Out More</a>
-            </div>            
-        </section>
-        <?php } ?>
+if ($enable_cta_section) {
+    // Get the CTA section heading from post meta
+    $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
+
+    // Get the selected CTA background color
+    $cta_section_bg_color_key = get_post_meta(get_the_ID(), 'cta_section_bg_color', true);
+    $cta_section_bg_color = isset($brand_colors[$cta_section_bg_color_key]) ? $brand_colors[$cta_section_bg_color_key] : '';
+?>
+<section class="cta-section" style="background-color: <?php echo esc_attr($cta_section_bg_color); ?>;">
+    <div class="content">
+        <h2><?php echo esc_html($cta_section_heading); ?></h2>
+        <p>Join thousands of satisfied customers who have transformed their businesses with our solutions. Take the first step towards achieving your goals today.</p>
+        <a href="#">Find Out More</a>
+    </div>            
+</section>
+<?php } ?>
 
         <!-- Newsletter Signup -->
         <section class="newsletter-section">
