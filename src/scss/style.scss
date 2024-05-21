@@ -46,6 +46,7 @@ body {
     margin: auto;
     section {
         border: 1px solid crimson;
+        padding: 2rem 1rem;
     }
     .navbar-section {
         background-color: orangered;
@@ -81,9 +82,7 @@ body {
         background-color: blueviolet;
     }
     .cta-section {
-        background-color: chocolate;
         .content {
-            //background-color: teal;
             text-align: center;
         }
     }

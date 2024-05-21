@@ -111,24 +111,25 @@ get_header();
         <!-- Call-to-Action Section -->
         <?php
         // Check if the CTA section is enabled
-$enable_cta_section = get_post_meta(get_the_ID(), 'enable_cta_section', true);
+        $enable_cta_section = get_post_meta(get_the_ID(), 'enable_cta_section', true);
 
-if ($enable_cta_section) {
-    // Get the CTA section heading from post meta
-    $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
+        if ($enable_cta_section) {
+            // Get the CTA section heading and description from post meta
+            $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
+            $cta_section_description = get_post_meta(get_the_ID(), 'cta_section_description', true);
 
-    // Get the selected CTA background color
-    $cta_section_bg_color_key = get_post_meta(get_the_ID(), 'cta_section_bg_color', true);
-    $cta_section_bg_color = isset($brand_colors[$cta_section_bg_color_key]) ? $brand_colors[$cta_section_bg_color_key] : '';
-?>
-<section class="cta-section" style="background-color: <?php echo esc_attr($cta_section_bg_color); ?>;">
-    <div class="content">
-        <h2><?php echo esc_html($cta_section_heading); ?></h2>
-        <p>Join thousands of satisfied customers who have transformed their businesses with our solutions. Take the first step towards achieving your goals today.</p>
-        <a href="#">Find Out More</a>
-    </div>            
-</section>
-<?php } ?>
+            // Get the selected CTA background color
+            $cta_section_bg_color_key = get_post_meta(get_the_ID(), 'cta_section_bg_color', true);
+            $cta_section_bg_color = isset($brand_colors[$cta_section_bg_color_key]) ? $brand_colors[$cta_section_bg_color_key] : '';
+        ?>
+        <section class="cta-section" style="background-color: <?php echo esc_attr($cta_section_bg_color); ?>;">
+            <div class="content">
+                <h2><?php echo esc_html($cta_section_heading); ?></h2>
+                <p><?php echo esc_html($cta_section_description); ?></p>
+                <a href="#">Find Out More</a>
+            </div>            
+        </section>
+        <?php } ?>
 
         <!-- Newsletter Signup -->
         <section class="newsletter-section">
