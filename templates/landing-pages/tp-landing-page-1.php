@@ -97,7 +97,16 @@ get_header();
 
         <!-- Call-to-Action Section -->
         <section class="cta-section">
-            <h1>Call-to-action content</h1>
+            <div class="content">
+                <?php
+                // Get the CTA section heading from post meta
+                $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
+                $cta_section_description = get_post_meta(get_the_ID(), 'cta_section_description', true);
+                ?>
+                <h2><?php echo esc_html($cta_section_heading); ?></h2>
+                <p><?php echo esc_html($cta_section_description); ?></p>
+                <a href="#">Find Out More</a>
+            </div>            
         </section>
 
         <!-- Newsletter Signup -->

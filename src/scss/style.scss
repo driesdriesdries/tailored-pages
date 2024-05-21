@@ -1,3 +1,43 @@
+body {
+    font-size: 10px; // base font size
+}
+#primary {
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
+    
+    h3 {
+        font-size: 2rem;
+    }
+    
+    h4 {
+        font-size: 1.75rem;
+    }
+    
+    h5 {
+        font-size: 1.5rem;
+    }
+    
+    h6 {
+        font-size: 1.25rem;
+    }
+    
+    p {
+        font-size: 1.6rem;
+    }
+    
+    small {
+        font-size: 0.875rem;
+    }
+    a {
+        font-size: 1.6rem;
+    }
+}
+
 .tp-landing-page1 {
     // background-color: rgb(10, 95, 129);
     max-width: 1200px;
@@ -42,6 +82,10 @@
     }
     .cta-section {
         background-color: chocolate;
+        .content {
+            background-color: teal;
+            text-align: center;
+        }
     }
     .newsletter-section {
         background-color: bisque;
