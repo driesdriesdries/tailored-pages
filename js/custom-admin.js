@@ -1,53 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('custom-admin.js loaded'); // Debug statement
+    console.log('custom-admin.js loaded');
+    console.log(tpColors);
 
-    // Ensure the script only runs on landing pages post type
-    var postType = document.getElementById('post_type').value;
-    if (postType !== 'landing-page') {
-        return;
-    }
+    // Select the correct ACF field
+    const colorField = document.querySelector('select[name="acf[field_664c778d3d4be]"]');
+    if (colorField) {
+        const colorPreview = document.createElement('div');
+        colorPreview.id = 'color-preview';
+        colorPreview.style.width = '20px';
+        colorPreview.style.height = '20px';
+        colorPreview.style.borderRadius = '50%';
+        colorPreview.style.marginTop = '10px';
+        colorPreview.style.marginLeft = '10px';
+        colorPreview.style.display = 'inline-block';
+        colorPreview.style.verticalAlign = 'middle';
+        colorField.parentNode.appendChild(colorPreview);
 
-    // Function to update the color preview
-    function updateColorPreview() {
-        var colorSelectors = document.querySelectorAll('.acf-field-select[data-name="cta_section_bg_color"] select');
-        console.log('Found color selectors:', colorSelectors.length); // Debug statement
-
-        colorSelectors.forEach(function(selector) {
-            var selectedOption = selector.options[selector.selectedIndex].value;
-            var colorField = document.querySelector('.acf-field[data-name="' + selectedOption + '"] input[type="text"]');
-            if (colorField) {
-                var color = colorField.value;
-                console.log('Selected color:', color); // Debug statement
-
-                var preview = selector.parentElement.querySelector('.color-preview');
-                if (preview) {
-                    preview.style.backgroundColor = color;
-                } else {
-                    console.log('Preview element not found'); // Debug statement
-                }
+        function updateColorPreview() {
+            const selectedColor = colorField.value;
+            let color;
+            switch (selectedColor) {
+                case 'primary_color':
+                    color = tpColors.primary_color;
+                    break;
+                case 'secondary_color':
+                    color = tpColors.secondary_color;
+                    break;
+                case 'tertiary_color':
+                    color = tpColors.tertiary_color;
+                    break;
+                case 'quaternary_color':
+                    color = tpColors.quaternary_color;
+                    break;
+                case 'quinary_color':
+                    color = tpColors.quinary_color;
+                    break;
+                default:
+                    color = '#FFFFFF'; // Default color
             }
-        });
+            colorPreview.style.backgroundColor = color;
+        }
+
+        colorField.addEventListener('change', updateColorPreview);
+        updateColorPreview(); // Initial call
     }
-
-    // Initial update on page load
-    updateColorPreview();
-
-    // Update preview on select change
-    document.querySelectorAll('.acf-field-select[data-name="cta_section_bg_color"] select').forEach(function(select) {
-        select.addEventListener('change', function() {
-            var selectedOption = select.options[select.selectedIndex].value;
-            var colorField = document.querySelector('.acf-field[data-name="' + selectedOption + '"] input[type="text"]');
-            if (colorField) {
-                var color = colorField.value;
-                console.log('Changed selected color:', color); // Debug statement
-
-                var preview = select.parentElement.querySelector('.color-preview');
-                if (preview) {
-                    preview.style.backgroundColor = color;
-                } else {
-                    console.log('Preview element not found'); // Debug statement
-                }
-            }
-        });
-    });
 });
