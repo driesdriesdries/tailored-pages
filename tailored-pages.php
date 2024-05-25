@@ -332,19 +332,7 @@ function tp_include_template( $template ) {
 }
 add_filter( 'template_include', 'tp_include_template' );
 
-function tp_enqueue_admin_scripts() {
-    wp_enqueue_script(
-        'tailored-pages-admin-js',
-        plugins_url('js/custom-admin.js', __FILE__),
-        array('jquery'),
-        filemtime(plugin_dir_path(__FILE__) . 'js/custom-admin.js'),
-        true
-    );
-}
-add_action('admin_enqueue_scripts', 'tp_enqueue_admin_scripts');
-
-function tp_localize_admin_scripts($hook) {
-    // Only load the script on the post edit screen for the landing-page post type
+function tp_enqueue_admin_scripts($hook) {
     if ('post.php' != $hook && 'post-new.php' != $hook) {
         return;
     }
@@ -354,10 +342,16 @@ function tp_localize_admin_scripts($hook) {
         return;
     }
 
-    // Get the associated brand ID
+    wp_enqueue_script(
+        'tailored-pages-admin-js',
+        plugins_url('js/custom-admin.js', __FILE__),
+        array('jquery'),
+        filemtime(plugin_dir_path(__FILE__) . 'js/custom-admin.js'),
+        true
+    );
+
     $associated_brand = get_field('associated_brand', $post->ID);
 
-    // Initialize color variables
     $primary_color = '';
     $secondary_color = '';
     $tertiary_color = '';
@@ -365,10 +359,8 @@ function tp_localize_admin_scripts($hook) {
     $quinary_color = '';
 
     if ($associated_brand) {
-        // Assuming associated_brand is a relationship field that returns a post object or ID
         $brand_id = is_array($associated_brand) ? $associated_brand[0]->ID : $associated_brand->ID;
 
-        // Fetch colors from the associated brand
         $primary_color = get_field('primary_color', $brand_id);
         $secondary_color = get_field('secondary_color', $brand_id);
         $tertiary_color = get_field('tertiary_color', $brand_id);
@@ -384,8 +376,6 @@ function tp_localize_admin_scripts($hook) {
         'quinary_color' => $quinary_color,
     ));
 }
-add_action('admin_enqueue_scripts', 'tp_localize_admin_scripts');
-
-
+add_action('admin_enqueue_scripts', 'tp_enqueue_admin_scripts');
 
 ?>

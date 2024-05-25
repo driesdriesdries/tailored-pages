@@ -118,15 +118,29 @@ get_header();
             $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
             $cta_section_description = get_post_meta(get_the_ID(), 'cta_section_description', true);
 
-            // Get the selected CTA background color
+            // Get the selected CTA background color and text color
             $cta_section_bg_color_key = get_post_meta(get_the_ID(), 'cta_section_bg_color', true);
+            $cta_section_copy_color_key = get_post_meta(get_the_ID(), 'cta_section_copy_color', true);
+            
             $cta_section_bg_color = isset($brand_colors[$cta_section_bg_color_key]) ? $brand_colors[$cta_section_bg_color_key] : '';
+            $cta_section_copy_color = isset($brand_colors[$cta_section_copy_color_key]) ? $brand_colors[$cta_section_copy_color_key] : '';
+
+            // Debug output to ensure values are being fetched correctly
+            echo '<!-- Debug: ';
+            echo 'Enable CTA Section: ' . $enable_cta_section . '; ';
+            echo 'CTA Heading: ' . $cta_section_heading . '; ';
+            echo 'CTA Description: ' . $cta_section_description . '; ';
+            echo 'CTA Background Color Key: ' . $cta_section_bg_color_key . '; ';
+            echo 'CTA Background Color: ' . $cta_section_bg_color . '; ';
+            echo 'CTA Copy Color Key: ' . $cta_section_copy_color_key . '; ';
+            echo 'CTA Copy Color: ' . $cta_section_copy_color;
+            echo ' -->';
         ?>
         <section class="cta-section" style="background-color: <?php echo esc_attr($cta_section_bg_color); ?>;">
             <div class="content">
-                <h2><?php echo esc_html($cta_section_heading); ?></h2>
-                <p><?php echo esc_html($cta_section_description); ?></p>
-                <a href="#">Find Out More</a>
+                <h2 style="color: <?php echo esc_attr($cta_section_copy_color); ?>;"><?php echo esc_html($cta_section_heading); ?></h2>
+                <p style="color: <?php echo esc_attr($cta_section_copy_color); ?>;"><?php echo esc_html($cta_section_description); ?></p>
+                <a href="#" style="color: <?php echo esc_attr($cta_section_copy_color); ?>;">Find Out More</a>
             </div>            
         </section>
         <?php } ?>
