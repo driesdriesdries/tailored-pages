@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         colorPreview.style.marginLeft = '10px';
         colorPreview.style.display = 'inline-block';
         colorPreview.style.verticalAlign = 'middle';
+        colorPreview.style.border = '2px solid black'; // Added dashed black border
         colorField.parentNode.appendChild(colorPreview);
         return colorPreview;
     }
