@@ -288,9 +288,55 @@
                 "ui_off_text": ""
             },
             {
+                "key": "field_6655dc53e2bf0",
+                "label": "Section Settings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
                 "key": "field_664c778d3d4be",
                 "label": "CTA Section Background Color",
                 "name": "cta_section_bg_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6651ecc3e0757",
+                "label": "CTA Section Copy Color",
+                "name": "cta_section_copy_color",
                 "aria-label": "",
                 "type": "select",
                 "instructions": "",
@@ -355,6 +401,141 @@
                 "placeholder": "",
                 "prepend": "",
                 "append": ""
+            },
+            {
+                "key": "field_6655dc82e2bf1",
+                "label": "Button Settings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_6655d86d6aa9b",
+                "label": "CTA Section Button Background Color",
+                "name": "cta_section_button_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6655d88c6aa9c",
+                "label": "CTA Section Button Copy Color",
+                "name": "cta_section_button_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6655d8a16aa9d",
+                "label": "CTA Section Button Copy",
+                "name": "cta_section_button_copy",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Find out more",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6655dd8898e57",
+                "label": "CTA Section Button Link",
+                "name": "cta_section_button_link",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6655dea4f563c",
+                "label": "CTA Section Button Link New Tab",
+                "name": "cta_section_button_link_new_tab",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Open link in a new tab?",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
             }
         ],
         "location": [

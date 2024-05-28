@@ -62,4 +62,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         updateColorPreview(copyColorField, copyColorPreview); // Initial call
     }
+    
+    // Color preview for CTA Section Button Background Color
+    const buttonBgColorField = document.querySelector('select[name="acf[field_6655d86d6aa9b]"]'); // Replace with actual field ID
+    if (buttonBgColorField) {
+        const buttonBgColorPreview = createColorPreview(buttonBgColorField);
+        buttonBgColorField.addEventListener('change', function() {
+            updateColorPreview(buttonBgColorField, buttonBgColorPreview);
+        });
+        updateColorPreview(buttonBgColorField, buttonBgColorPreview); // Initial call
+    }
+
+    // Color preview for CTA Section Button Copy Color
+    const buttonCopyColorField = document.querySelector('select[name="acf[field_6655d88c6aa9c]"]'); // Replace with actual field ID
+    if (buttonCopyColorField) {
+        const buttonCopyColorPreview = createColorPreview(buttonCopyColorField);
+        buttonCopyColorField.addEventListener('change', function() {
+            updateColorPreview(buttonCopyColorField, buttonCopyColorPreview);
+        });
+        updateColorPreview(buttonCopyColorField, buttonCopyColorPreview); // Initial call
+    }
 });
