@@ -90,8 +90,39 @@ get_header();
 
         <!-- FAQ Section -->
         <section class="faq-section">
-            <h1>FAQ content</h1>
+            <h3>FAQ SECTION HEADING</h3>
+            <p>This is a description of the section I'm trying to build</p>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>What are some effective strategies for increasing website traffic?</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Some effective strategies for increasing website traffic include optimizing your website for search engines (SEO), creating high-quality and engaging content, leveraging social media platforms, using email marketing campaigns, engaging in influencer marketing, running paid advertising campaigns, and collaborating with other websites for guest posts and backlinks.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>What are the key principles of effective time management?</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>The key principles of effective time management include setting clear goals, prioritizing tasks based on importance and urgency, breaking tasks into smaller, manageable steps, creating a schedule and sticking to it, minimizing distractions, delegating tasks when possible, and regularly reviewing and adjusting your plans to improve productivity and efficiency.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>What is the importance of having a strong brand identity?</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>A strong brand identity is important because it helps distinguish your business from competitors, builds customer recognition and loyalty, communicates your values and mission, creates a consistent and memorable experience for customers, and enhances your marketing efforts by providing a clear and cohesive message. A strong brand identity also instills trust and credibility, which can lead to increased customer retention and business growth.</p>
+                    </div>
+                </div>
+            </div>
         </section>
+
 
         <!-- Video Section -->
         <section class="video-section">

@@ -31,6 +31,17 @@ function tp_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'tp_enqueue_styles');
 
+// Enqueue accordion.js file for the front end
+function tp_enqueue_accordion_script() {
+    wp_enqueue_script(
+        'tp-accordion-js',
+        plugins_url('js/accordion.js', __FILE__),
+        array('jquery'),
+        filemtime(plugin_dir_path(__FILE__) . 'js/accordion.js'),
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'tp_enqueue_accordion_script');
 
 // Register Custom Post Types
 function tp_register_custom_post_types() {
