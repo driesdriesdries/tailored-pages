@@ -89,39 +89,56 @@ get_header();
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq-section">
-            <h3>FAQ SECTION HEADING</h3>
-            <p>This is a description of the section I'm trying to build</p>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h4>What are some effective strategies for increasing website traffic?</h4>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Some effective strategies for increasing website traffic include optimizing your website for search engines (SEO), creating high-quality and engaging content, leveraging social media platforms, using email marketing campaigns, engaging in influencer marketing, running paid advertising campaigns, and collaborating with other websites for guest posts and backlinks.</p>
-                    </div>
+        <?php
+        // Check if the FAQ section is enabled
+        $enable_faq_section = get_post_meta(get_the_ID(), 'enable_faq_section', true);
+
+        if ($enable_faq_section) {
+            // Retrieve the values from the ACF fields
+            $faq_section_background_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_background_color', true)];
+            $faq_section_copy_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_copy_color', true)];
+            $faq_section_heading = get_post_meta(get_the_ID(), 'faq_section_heading', true);
+            $faq_section_description = get_post_meta(get_the_ID(), 'faq_section_description', true);
+            $faq_section_accordion_heading_background_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_heading_background_color', true)];
+            $faq_section_accordion_heading_copy_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_heading_copy_color', true)];
+            $faq_section_accordion_body_background_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_body_background_color', true)];
+            $faq_section_accordion_body_copy_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_body_copy_color', true)];
+            $faq_section_accordion_accent_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_accent_color', true)];
+            ?>
+
+            <style>
+                .faq-section .accordion-item .accordion-header:hover {
+                    background-color: <?php echo esc_attr($faq_section_accordion_accent_color); ?>;
+                }
+                .faq-section .accordion-item .accordion-header:hover .accordion-icon {
+                    color: <?php echo esc_attr($faq_section_accordion_accent_color); ?>;
+                }
+            </style>
+
+            <section class="faq-section" style="background-color: <?php echo esc_attr($faq_section_background_color); ?>; color: <?php echo esc_attr($faq_section_copy_color); ?>;">
+                <h2 style="text-align: center;"><?php echo esc_html($faq_section_heading); ?></h2>
+                <p style="text-align: center;"><?php echo esc_html($faq_section_description); ?></p>
+                <div class="accordion">
+                    <?php if (have_rows('faq_section_repeater')): ?>
+                        <?php while (have_rows('faq_section_repeater')): the_row(); ?>
+                            <?php
+                            $faq_heading = get_sub_field('faq_section_repeater_heading');
+                            $faq_body = get_sub_field('faq_section_repeater_body');
+                            ?>
+                            <div class="accordion-item" style="border-bottom: 2px solid <?php echo esc_attr($faq_section_accordion_accent_color); ?>;">
+                                <button class="accordion-header" style="background-color: <?php echo esc_attr($faq_section_accordion_heading_background_color); ?>; color: <?php echo esc_attr($faq_section_accordion_heading_copy_color); ?>;">
+                                    <h4><?php echo esc_html($faq_heading); ?></h4>
+                                    <span class="accordion-icon" style="color: <?php echo esc_attr($faq_section_accordion_accent_color); ?>;">+</span>
+                                </button>
+                                <div class="accordion-content" style="background-color: <?php echo esc_attr($faq_section_accordion_body_background_color); ?>; color: <?php echo esc_attr($faq_section_accordion_body_copy_color); ?>;">
+                                    <p><?php echo esc_html($faq_body); ?></p>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h4>What are the key principles of effective time management?</h4>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>The key principles of effective time management include setting clear goals, prioritizing tasks based on importance and urgency, breaking tasks into smaller, manageable steps, creating a schedule and sticking to it, minimizing distractions, delegating tasks when possible, and regularly reviewing and adjusting your plans to improve productivity and efficiency.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h4>What is the importance of having a strong brand identity?</h4>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>A strong brand identity is important because it helps distinguish your business from competitors, builds customer recognition and loyalty, communicates your values and mission, creates a consistent and memorable experience for customers, and enhances your marketing efforts by providing a clear and cohesive message. A strong brand identity also instills trust and credibility, which can lead to increased customer retention and business growth.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        <?php } ?>
 
 
         <!-- Video Section -->

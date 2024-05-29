@@ -82,21 +82,18 @@ body {
         background-color: greenyellow;
     }
     .faq-section {
-        background-color: crimson;
         > h3,
         > p {
             text-align: center;
         }
         .accordion {
             .accordion-item {
-                border-bottom: 2px solid gold;
                 overflow: hidden;
                 .accordion-header {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     width: 100%;
-                    background-color: #f1f1f1;
                     cursor: pointer;
                     padding: 10px;
                     text-align: left;
@@ -104,23 +101,18 @@ body {
                     outline: none;
                     transition: background-color 0.3s ease;
     
-                    &:hover {
-                        background-color: #ddd;
-                    }
-    
                     h4 {
                         margin: 0;
-                        font-size: 1.5rem; // Adjust as needed
+                        font-size: 1.5rem; /* Adjust as needed */
                     }
     
                     .accordion-icon {
-                        font-size: 5rem; // Icon size
+                        font-size: 5rem; /* Icon size */
                         transition: transform 0.3s ease;
                     }
                 }
     
                 .accordion-content {
-                    background-color: white;
                     max-height: 0;
                     padding: 0 10px;
                     transition: max-height 0.3s ease, padding 0.3s ease;
@@ -129,7 +121,7 @@ body {
     
                     p {
                         margin: 10px 0;
-                        font-size: 1.6rem; // Text size inside the panel
+                        font-size: 1.6rem; /* Text size inside the panel */
                     }
                 }
     

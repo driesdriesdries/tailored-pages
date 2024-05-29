@@ -1,254 +1,293 @@
 [
     {
-        "key": "group_664b1eb0b58d3",
-        "title": "TP | All Page Fields",
-        "fields": [
-            {
-                "key": "field_664b1eb03bca8",
-                "label": "Associated Brand",
-                "name": "associated_brand",
-                "aria-label": "",
-                "type": "relationship",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "brand"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "search"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": "",
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "landing-page"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "brochure"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "listing-page"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": [
-            "the_content"
-        ],
-        "active": true,
-        "description": "",
-        "show_in_rest": 0
-    },
-    {
-        "key": "group_664b1bc0f36db",
-        "title": "TP | Brand Fields",
-        "fields": [
-            {
-                "key": "field_664b432ef0922",
-                "label": "Logos",
-                "name": "",
-                "aria-label": "",
-                "type": "accordion",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "open": 0,
-                "multi_expand": 0,
-                "endpoint": 0
-            },
-            {
-                "key": "field_664b1bc1bff6c",
-                "label": "Brand Logo",
-                "name": "brand_logo",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "library": "all",
-                "min_width": "",
-                "min_height": "",
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": "",
-                "preview_size": "medium"
-            },
-            {
-                "key": "field_664b42e596846",
-                "label": "Colors",
-                "name": "",
-                "aria-label": "",
-                "type": "accordion",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "open": 0,
-                "multi_expand": 0,
-                "endpoint": 0
-            },
-            {
-                "key": "field_664b3f3e7f19d",
-                "label": "Primary Color",
-                "name": "primary_color",
-                "aria-label": "",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "enable_opacity": 0,
-                "return_format": "string"
-            },
-            {
-                "key": "field_664b3fc77f19e",
-                "label": "Secondary Color",
-                "name": "secondary_color",
-                "aria-label": "",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "enable_opacity": 0,
-                "return_format": "string"
-            },
-            {
-                "key": "field_664b3fd77f19f",
-                "label": "Tertiary Color",
-                "name": "tertiary_color",
-                "aria-label": "",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "enable_opacity": 0,
-                "return_format": "string"
-            },
-            {
-                "key": "field_664b3fe27f1a0",
-                "label": "Quaternary Color",
-                "name": "quaternary_color",
-                "aria-label": "",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "enable_opacity": 0,
-                "return_format": "string"
-            },
-            {
-                "key": "field_664b40017f1a1",
-                "label": "Quinary Color",
-                "name": "quinary_color",
-                "aria-label": "",
-                "type": "color_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "enable_opacity": 0,
-                "return_format": "string"
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "brand"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": [
-            "the_content"
-        ],
-        "active": true,
-        "description": "",
-        "show_in_rest": 0
-    },
-    {
         "key": "group_664c60e183166",
         "title": "TP Landing Page 1",
         "fields": [
+            {
+                "key": "field_665747e91dbb1",
+                "label": "FAQ Section",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_faq_section_background_color",
+                "label": "FAQ Section Background Color",
+                "name": "faq_section_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_copy_color",
+                "label": "FAQ Section Copy Color",
+                "name": "faq_section_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_heading_background_color",
+                "label": "Accordion Heading Background Color",
+                "name": "faq_section_accordion_heading_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_heading_copy_color",
+                "label": "Accordion Heading Copy Color",
+                "name": "faq_section_accordion_heading_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_body_background_color",
+                "label": "Accordion Body Background Color",
+                "name": "faq_section_accordion_body_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_body_copy_color",
+                "label": "Accordion Body Copy Color",
+                "name": "faq_section_accordion_body_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_accent_color",
+                "label": "Accordion Accent Color",
+                "name": "faq_section_accordion_accent_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_repeater",
+                "label": "FAQ Items",
+                "name": "faq_section_repeater",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "Add FAQ Item",
+                "sub_fields": [
+                    {
+                        "key": "field_faq_section_repeater_heading",
+                        "label": "FAQ Heading",
+                        "name": "faq_section_repeater_heading",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_faq_section_repeater_body",
+                        "label": "FAQ Body",
+                        "name": "faq_section_repeater_body",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": "",
+                        "new_lines": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    }
+                ]
+            },
             {
                 "key": "field_664c60e1e4748",
                 "label": "CTA Section",
