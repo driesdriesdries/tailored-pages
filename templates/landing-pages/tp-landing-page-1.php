@@ -10,8 +10,9 @@ get_header();
         <!-- Brand Information goes here -->
         <?php
         // Get the associated brand ID from post meta
+        // DB Call
         $associated_brand_ids = get_post_meta(get_the_ID(), 'associated_brand', true);
-        
+
         // Check if the associated brand ID is an array and get the first element
         if (is_array($associated_brand_ids) && !empty($associated_brand_ids)) {
             $associated_brand_id = $associated_brand_ids[0];
@@ -30,6 +31,7 @@ get_header();
         // Check if the associated brand ID exists
         if ($associated_brand_id) {
             // Retrieve brand colors
+            // DB Calls
             $brand_colors['primary_color'] = get_post_meta($associated_brand_id, 'primary_color', true);
             $brand_colors['secondary_color'] = get_post_meta($associated_brand_id, 'secondary_color', true);
             $brand_colors['tertiary_color'] = get_post_meta($associated_brand_id, 'tertiary_color', true);
@@ -39,14 +41,18 @@ get_header();
 
         if ($associated_brand_id) {
             // Retrieve the brand name (post title)
+            // DB Call
             $brand_name = get_the_title($associated_brand_id);
 
             // Retrieve the brand logo from the brand post meta
+            // DB Call
             $brand_logo_id = get_post_meta($associated_brand_id, 'brand_logo', true);
 
             if ($brand_logo_id) {
                 // Assuming the brand logo is an image ID
+                // DB Call
                 $brand_logo_url = wp_get_attachment_image_url($brand_logo_id, 'medium'); // Use 'medium' size
+                // DB Call
                 $brand_logo_alt = get_post_meta($brand_logo_id, '_wp_attachment_image_alt', true);
             }
         }
@@ -91,19 +97,28 @@ get_header();
         <!-- FAQ Section -->
         <?php
         // Check if the FAQ section is enabled
+        // DB Call
         $enable_faq_section = get_post_meta(get_the_ID(), 'enable_faq_section', true);
 
         if ($enable_faq_section) {
+            // Retrieve all meta values for the current post in one query
+            // DB Call
+            $post_meta = get_post_meta(get_the_ID());
+
             // Retrieve the values from the ACF fields
-            $faq_section_background_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_background_color', true)];
-            $faq_section_copy_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_copy_color', true)];
-            $faq_section_heading = get_post_meta(get_the_ID(), 'faq_section_heading', true);
-            $faq_section_description = get_post_meta(get_the_ID(), 'faq_section_description', true);
-            $faq_section_accordion_heading_background_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_heading_background_color', true)];
-            $faq_section_accordion_heading_copy_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_heading_copy_color', true)];
-            $faq_section_accordion_body_background_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_body_background_color', true)];
-            $faq_section_accordion_body_copy_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_body_copy_color', true)];
-            $faq_section_accordion_accent_color = $brand_colors[get_post_meta(get_the_ID(), 'faq_section_accordion_accent_color', true)];
+            $faq_section_background_color = $brand_colors[$post_meta['faq_section_background_color'][0]];
+            $faq_section_copy_color = $brand_colors[$post_meta['faq_section_copy_color'][0]];
+            $faq_section_heading = $post_meta['faq_section_heading'][0];
+            $faq_section_description = $post_meta['faq_section_description'][0];
+            $faq_section_accordion_heading_background_color = $brand_colors[$post_meta['faq_section_accordion_heading_background_color'][0]];
+            $faq_section_accordion_heading_copy_color = $brand_colors[$post_meta['faq_section_accordion_heading_copy_color'][0]];
+            $faq_section_accordion_body_background_color = $brand_colors[$post_meta['faq_section_accordion_body_background_color'][0]];
+            $faq_section_accordion_body_copy_color = $brand_colors[$post_meta['faq_section_accordion_body_copy_color'][0]];
+            $faq_section_accordion_accent_color = $brand_colors[$post_meta['faq_section_accordion_accent_color'][0]];
+
+            // Batch retrieve FAQ repeater rows
+            // DB Call
+            $faq_items = get_field('faq_section_repeater', get_the_ID());
             ?>
 
             <style>
@@ -119,11 +134,11 @@ get_header();
                 <h2 style="text-align: center;"><?php echo esc_html($faq_section_heading); ?></h2>
                 <p style="text-align: center;"><?php echo esc_html($faq_section_description); ?></p>
                 <div class="accordion">
-                    <?php if (have_rows('faq_section_repeater')): ?>
-                        <?php while (have_rows('faq_section_repeater')): the_row(); ?>
+                    <?php if ($faq_items): ?>
+                        <?php foreach ($faq_items as $faq_item): ?>
                             <?php
-                            $faq_heading = get_sub_field('faq_section_repeater_heading');
-                            $faq_body = get_sub_field('faq_section_repeater_body');
+                            $faq_heading = $faq_item['faq_section_repeater_heading'];
+                            $faq_body = $faq_item['faq_section_repeater_body'];
                             ?>
                             <div class="accordion-item" style="border-bottom: 2px solid <?php echo esc_attr($faq_section_accordion_accent_color); ?>;">
                                 <button class="accordion-header" style="background-color: <?php echo esc_attr($faq_section_accordion_heading_background_color); ?>; color: <?php echo esc_attr($faq_section_accordion_heading_copy_color); ?>;">
@@ -134,12 +149,11 @@ get_header();
                                     <p><?php echo esc_html($faq_body); ?></p>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
             </section>
         <?php } ?>
-
 
         <!-- Video Section -->
         <section class="video-section">
@@ -159,22 +173,32 @@ get_header();
         <!-- Call-to-Action Section -->
         <?php
         // Check if the CTA section is enabled
+        // DB Call
         $enable_cta_section = get_post_meta(get_the_ID(), 'enable_cta_section', true);
 
         if ($enable_cta_section) {
             // Get the CTA section heading and description from post meta
+            // DB Call
             $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
+            // DB Call
             $cta_section_description = get_post_meta(get_the_ID(), 'cta_section_description', true);
 
             // Get the selected CTA background color and text color
+            // DB Call
             $cta_section_bg_color_key = get_post_meta(get_the_ID(), 'cta_section_bg_color', true);
+            // DB Call
             $cta_section_copy_color_key = get_post_meta(get_the_ID(), 'cta_section_copy_color', true);
 
             // Get the selected CTA button background color, text color, button text, link destination, and new tab option
+            // DB Call
             $cta_section_button_bg_color_key = get_post_meta(get_the_ID(), 'cta_section_button_background_color', true);
+            // DB Call
             $cta_section_button_copy_color_key = get_post_meta(get_the_ID(), 'cta_section_button_copy_color', true);
+            // DB Call
             $cta_section_button_copy = get_post_meta(get_the_ID(), 'cta_section_button_copy', true);
+            // DB Call
             $cta_section_button_link = get_post_meta(get_the_ID(), 'cta_section_button_link', true);
+            // DB Call
             $cta_section_button_link_new_tab = get_post_meta(get_the_ID(), 'cta_section_button_link_new_tab', true);
 
             // Retrieve colors from the brand colors array or default to an empty string if not set
@@ -186,23 +210,6 @@ get_header();
             // Determine target attribute based on the new tab option
             $cta_button_target = !empty($cta_section_button_link_new_tab) ? ' target="_blank"' : '';
 
-            // Debug output to ensure values are being fetched correctly
-            echo '<!-- Debug: ';
-            echo 'Enable CTA Section: ' . $enable_cta_section . '; ';
-            echo 'CTA Heading: ' . $cta_section_heading . '; ';
-            echo 'CTA Description: ' . $cta_section_description . '; ';
-            echo 'CTA Background Color Key: ' . $cta_section_bg_color_key . '; ';
-            echo 'CTA Background Color: ' . $cta_section_bg_color . '; ';
-            echo 'CTA Copy Color Key: ' . $cta_section_copy_color_key . '; ';
-            echo 'CTA Copy Color: ' . $cta_section_copy_color . '; ';
-            echo 'CTA Button Background Color Key: ' . $cta_section_button_bg_color_key . '; ';
-            echo 'CTA Button Background Color: ' . $cta_section_button_bg_color . '; ';
-            echo 'CTA Button Copy Color Key: ' . $cta_section_button_copy_color_key . '; ';
-            echo 'CTA Button Copy Color: ' . $cta_section_button_copy_color . '; ';
-            echo 'CTA Button Copy: ' . $cta_section_button_copy . '; ';
-            echo 'CTA Button Link: ' . $cta_section_button_link . '; ';
-            echo 'CTA Button Link New Tab: ' . $cta_section_button_link_new_tab;
-            echo ' -->';
             ?>
             <section class="cta-section" style="background-color: <?php echo esc_attr($cta_section_bg_color); ?>;">
                 <div class="content">
