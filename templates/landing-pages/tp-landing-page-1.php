@@ -240,6 +240,9 @@ get_header();
             <h1>Footer content</h1>
         </section>
 
+
+        <h1><?php echo get_num_queries(); ?> DB Queries</h1>
+
     </main><!-- #main -->
 </div><!-- #primary -->
 
