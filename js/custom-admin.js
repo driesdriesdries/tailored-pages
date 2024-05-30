@@ -43,43 +43,46 @@ document.addEventListener('DOMContentLoaded', function() {
         colorPreview.style.backgroundColor = color;
     }
 
-    // Color preview for CTA Section Background Color
-    const backgroundColorField = document.querySelector('select[name="acf[field_664c778d3d4be]"]');
-    if (backgroundColorField) {
-        const backgroundColorPreview = createColorPreview(backgroundColorField);
-        backgroundColorField.addEventListener('change', function() {
-            updateColorPreview(backgroundColorField, backgroundColorPreview);
-        });
-        updateColorPreview(backgroundColorField, backgroundColorPreview); // Initial call
-    }
+    // Fields to add color previews
+    const fields = [
+        'faq_section_background_color',
+        'faq_section_copy_color',
+        'faq_section_accordion_heading_background_color',
+        'faq_section_accordion_heading_copy_color',
+        'faq_section_accordion_body_background_color',
+        'faq_section_accordion_body_copy_color',
+        'faq_section_accordion_accent_color'
+    ];
 
-    // Color preview for CTA Section Copy Color
-    const copyColorField = document.querySelector('select[name="acf[field_6651ecc3e0757]"]');
-    if (copyColorField) {
-        const copyColorPreview = createColorPreview(copyColorField);
-        copyColorField.addEventListener('change', function() {
-            updateColorPreview(copyColorField, copyColorPreview);
-        });
-        updateColorPreview(copyColorField, copyColorPreview); // Initial call
-    }
-    
-    // Color preview for CTA Section Button Background Color
-    const buttonBgColorField = document.querySelector('select[name="acf[field_6655d86d6aa9b]"]'); // Replace with actual field ID
-    if (buttonBgColorField) {
-        const buttonBgColorPreview = createColorPreview(buttonBgColorField);
-        buttonBgColorField.addEventListener('change', function() {
-            updateColorPreview(buttonBgColorField, buttonBgColorPreview);
-        });
-        updateColorPreview(buttonBgColorField, buttonBgColorPreview); // Initial call
-    }
+    fields.forEach(function(field) {
+        const fieldSelector = `select[name="acf[field_${field}]"]`;
+        const colorField = document.querySelector(fieldSelector);
+        if (colorField) {
+            const colorPreview = createColorPreview(colorField);
+            colorField.addEventListener('change', function() {
+                updateColorPreview(colorField, colorPreview);
+            });
+            updateColorPreview(colorField, colorPreview); // Initial call
+        }
+    });
 
-    // Color preview for CTA Section Button Copy Color
-    const buttonCopyColorField = document.querySelector('select[name="acf[field_6655d88c6aa9c]"]'); // Replace with actual field ID
-    if (buttonCopyColorField) {
-        const buttonCopyColorPreview = createColorPreview(buttonCopyColorField);
-        buttonCopyColorField.addEventListener('change', function() {
-            updateColorPreview(buttonCopyColorField, buttonCopyColorPreview);
-        });
-        updateColorPreview(buttonCopyColorField, buttonCopyColorPreview); // Initial call
-    }
+    // Existing color previews for CTA Section fields
+    const ctaFields = [
+        'field_664c778d3d4be', // CTA Section Background Color
+        'field_6651ecc3e0757', // CTA Section Copy Color
+        'field_6655d86d6aa9b', // CTA Section Button Background Color
+        'field_6655d88c6aa9c'  // CTA Section Button Copy Color
+    ];
+
+    ctaFields.forEach(function(fieldId) {
+        const fieldSelector = `select[name="acf[${fieldId}]"]`;
+        const colorField = document.querySelector(fieldSelector);
+        if (colorField) {
+            const colorPreview = createColorPreview(colorField);
+            colorField.addEventListener('change', function() {
+                updateColorPreview(colorField, colorPreview);
+            });
+            updateColorPreview(colorField, colorPreview); // Initial call
+        }
+    });
 });

@@ -146,7 +146,7 @@ get_header();
                                     <span class="accordion-icon" style="color: <?php echo esc_attr($faq_section_accordion_accent_color); ?>;">+</span>
                                 </button>
                                 <div class="accordion-content" style="background-color: <?php echo esc_attr($faq_section_accordion_body_background_color); ?>; color: <?php echo esc_attr($faq_section_accordion_body_copy_color); ?>;">
-                                    <p><?php echo esc_html($faq_body); ?></p>
+                                    <p style="color: <?php echo esc_attr($faq_section_accordion_body_copy_color); ?>; color: <?php echo esc_attr($faq_section_accordion_body_copy_color); ?>;"><?php echo esc_html($faq_body); ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
