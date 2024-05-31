@@ -7,7 +7,8 @@
  */
 
 // Include admin menus
-include_once plugin_dir_path(__FILE__) . 'includes/admin/admin-menus.php';
+require_once plugin_dir_path(__FILE__) . 'includes/admin/admin-menus.php';
+require_once plugin_dir_path(__FILE__) . 'includes/custom-post-types.php';
 
 // Enqueue the compiled CSS file
 function tp_enqueue_styles() {
@@ -31,216 +32,6 @@ function tp_enqueue_accordion_script() {
     );
 }
 add_action('wp_enqueue_scripts', 'tp_enqueue_accordion_script');
-
-// Register Custom Post Types
-function tp_register_custom_post_types() {
-
-    // Register Brand Post Type
-    $labels = array(
-        'name'                  => _x( 'Brands', 'Post Type General Name', 'text_domain' ),
-        'singular_name'         => _x( 'Brand', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'             => __( 'Brands', 'text_domain' ),
-        'name_admin_bar'        => __( 'Brand', 'text_domain' ),
-        'archives'              => __( 'Brand Archives', 'text_domain' ),
-        'attributes'            => __( 'Brand Attributes', 'text_domain' ),
-        'parent_item_colon'     => __( 'Parent Brand:', 'text_domain' ),
-        'all_items'             => __( 'All Brands', 'text_domain' ),
-        'add_new_item'          => __( 'Add New Brand', 'text_domain' ),
-        'add_new'               => __( 'Add New', 'text_domain' ),
-        'new_item'              => __( 'New Brand', 'text_domain' ),
-        'edit_item'             => __( 'Edit Brand', 'text_domain' ),
-        'update_item'           => __( 'Update Brand', 'text_domain' ),
-        'view_item'             => __( 'View Brand', 'text_domain' ),
-        'view_items'            => __( 'View Brands', 'text_domain' ),
-        'search_items'          => __( 'Search Brand', 'text_domain' ),
-        'not_found'             => __( 'Not found', 'text_domain' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-        'featured_image'        => __( 'Featured Image', 'text_domain' ),
-        'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-        'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-        'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-        'insert_into_item'      => __( 'Insert into brand', 'text_domain' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this brand', 'text_domain' ),
-        'items_list'            => __( 'Brands list', 'text_domain' ),
-        'items_list_navigation' => __( 'Brands list navigation', 'text_domain' ),
-        'filter_items_list'     => __( 'Filter brands list', 'text_domain' ),
-    );
-    $args = array(
-        'label'                 => __( 'Brand', 'text_domain' ),
-        'description'           => __( 'Post Type Description', 'text_domain' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
-        'hierarchical'          => false,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => 'tailored-pages',
-        'menu_position'         => 6,
-        'menu_icon'             => 'dashicons-store',
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'post',
-    );
-    register_post_type( 'brand', $args );
-
-    // Register Listing Page Post Type
-    $labels = array(
-        'name'                  => _x( 'Listing Pages', 'Post Type General Name', 'text_domain' ),
-        'singular_name'         => _x( 'Listing Page', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'             => __( 'Listing Pages', 'text_domain' ),
-        'name_admin_bar'        => __( 'Listing Page', 'text_domain' ),
-        'archives'              => __( 'Listing Page Archives', 'text_domain' ),
-        'attributes'            => __( 'Listing Page Attributes', 'text_domain' ),
-        'parent_item_colon'     => __( 'Parent Listing Page:', 'text_domain' ),
-        'all_items'             => __( 'All Listing Pages', 'text_domain' ),
-        'add_new_item'          => __( 'Add New Listing Page', 'text_domain' ),
-        'add_new'               => __( 'Add New', 'text_domain' ),
-        'new_item'              => __( 'New Listing Page', 'text_domain' ),
-        'edit_item'             => __( 'Edit Listing Page', 'text_domain' ),
-        'update_item'           => __( 'Update Listing Page', 'text_domain' ),
-        'view_item'             => __( 'View Listing Page', 'text_domain' ),
-        'view_items'            => __( 'View Listing Pages', 'text_domain' ),
-        'search_items'          => __( 'Search Listing Page', 'text_domain' ),
-        'not_found'             => __( 'Not found', 'text_domain' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-        'featured_image'        => __( 'Featured Image', 'text_domain' ),
-        'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-        'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-        'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-        'insert_into_item'      => __( 'Insert into listing page', 'text_domain' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this listing page', 'text_domain' ),
-        'items_list'            => __( 'Listing Pages list', 'text_domain' ),
-        'items_list_navigation' => __( 'Listing Pages list navigation', 'text_domain' ),
-        'filter_items_list'     => __( 'Filter listing pages list', 'text_domain' ),
-    );
-    $args = array(
-        'label'                 => __( 'Listing Page', 'text_domain' ),
-        'description'           => __( 'Post Type Description', 'text_domain' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
-        'hierarchical'          => false,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => 'tailored-pages',
-        'menu_position'         => 7,
-        'menu_icon'             => 'dashicons-list-view',
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'post',
-    );
-    register_post_type( 'listing-page', $args );
-
-    // Register Landing Page Post Type
-    $labels = array(
-        'name'                  => _x( 'Landing Pages', 'Post Type General Name', 'text_domain' ),
-        'singular_name'         => _x( 'Landing Page', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'             => __( 'Landing Pages', 'text_domain' ),
-        'name_admin_bar'        => __( 'Landing Page', 'text_domain' ),
-        'archives'              => __( 'Landing Page Archives', 'text_domain' ),
-        'attributes'            => __( 'Landing Page Attributes', 'text_domain' ),
-        'parent_item_colon'     => __( 'Parent Landing Page:', 'text_domain' ),
-        'all_items'             => __( 'All Landing Pages', 'text_domain' ),
-        'add_new_item'          => __( 'Add New Landing Page', 'text_domain' ),
-        'add_new'               => __( 'Add New', 'text_domain' ),
-        'new_item'              => __( 'New Landing Page', 'text_domain' ),
-        'edit_item'             => __( 'Edit Landing Page', 'text_domain' ),
-        'update_item'           => __( 'Update Landing Page', 'text_domain' ),
-        'view_item'             => __( 'View Landing Page', 'text_domain' ),
-        'view_items'            => __( 'View Landing Pages', 'text_domain' ),
-        'search_items'          => __( 'Search Landing Page', 'text_domain' ),
-        'not_found'             => __( 'Not found', 'text_domain' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-        'featured_image'        => __( 'Featured Image', 'text_domain' ),
-        'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-        'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-        'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-        'insert_into_item'      => __( 'Insert into landing page', 'text_domain' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this landing page', 'text_domain' ),
-        'items_list'            => __( 'Landing Pages list', 'text_domain' ),
-        'items_list_navigation' => __( 'Landing Pages list navigation', 'text_domain' ),
-        'filter_items_list'     => __( 'Filter landing pages list', 'text_domain' ),
-    );
-    $args = array(
-        'label'                 => __( 'Landing Page', 'text_domain' ),
-        'description'           => __( 'Post Type Description', 'text_domain' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
-        'hierarchical'          => false,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => 'tailored-pages',
-        'menu_position'         => 8,
-        'menu_icon'             => 'dashicons-admin-page',
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'post',
-    );
-    register_post_type( 'landing-page', $args );
-
-    // Register Brochure Post Type
-    $labels = array(
-        'name'                  => _x( 'Brochures', 'Post Type General Name', 'text_domain' ),
-        'singular_name'         => _x( 'Brochure', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'             => __( 'Brochures', 'text_domain' ),
-        'name_admin_bar'        => __( 'Brochure', 'text_domain' ),
-        'archives'              => __( 'Brochure Archives', 'text_domain' ),
-        'attributes'            => __( 'Brochure Attributes', 'text_domain' ),
-        'parent_item_colon'     => __( 'Parent Brochure:', 'text_domain' ),
-        'all_items'             => __( 'All Brochures', 'text_domain' ),
-        'add_new_item'          => __( 'Add New Brochure', 'text_domain' ),
-        'add_new'               => __( 'Add New', 'text_domain' ),
-        'new_item'              => __( 'New Brochure', 'text_domain' ),
-        'edit_item'             => __( 'Edit Brochure', 'text_domain' ),
-        'update_item'           => __( 'Update Brochure', 'text_domain' ),
-        'view_item'             => __( 'View Brochure', 'text_domain' ),
-        'view_items'            => __( 'View Brochures', 'text_domain' ),
-        'search_items'          => __( 'Search Brochure', 'text_domain' ),
-        'not_found'             => __( 'Not found', 'text_domain' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-        'featured_image'        => __( 'Featured Image', 'text_domain' ),
-        'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-        'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-        'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-        'insert_into_item'      => __( 'Insert into brochure', 'text_domain' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this brochure', 'text_domain' ),
-        'items_list'            => __( 'Brochures list', 'text_domain' ),
-        'items_list_navigation' => __( 'Brochures list navigation', 'text_domain' ),
-        'filter_items_list'     => __( 'Filter brochures list', 'text_domain' ),
-    );
-    $args = array(
-        'label'                 => __( 'Brochure', 'text_domain' ),
-        'description'           => __( 'Post Type Description', 'text_domain' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
-        'hierarchical'          => false,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => 'tailored-pages',
-        'menu_position'         => 9,
-        'menu_icon'             => 'dashicons-format-aside',
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'post',
-    );
-    register_post_type( 'brochure', $args );
-
-}
-add_action( 'init', 'tp_register_custom_post_types', 0 );
 
 // Add Meta Box for Template Selection
 function tp_add_template_meta_box() {
@@ -403,6 +194,7 @@ function tp_filter_products_by_brand($args, $field, $post_id) {
 
     return $args;
 }
+
 // Add custom columns to Listing Page post type
 function tp_add_listing_page_columns($columns) {
     $new_columns = array();
@@ -469,25 +261,44 @@ function tp_custom_landing_page_column($column, $post_id) {
 }
 add_action('manage_landing-page_posts_custom_column', 'tp_custom_landing_page_column', 10, 2);
 
-// Modify the admin query to filter by brand
-function tp_filter_by_brand($query) {
-    global $pagenow;
-    $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
+// // Modify the admin query to filter by brand
+// function tp_filter_by_brand($query) {
+//     global $pagenow;
+//     $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
 
-    if (is_admin() && $query->is_main_query() && $pagenow == 'edit.php' && ($post_type == 'listing-page' || $post_type == 'landing-page')) {
-        if (isset($_GET['brand_filter']) && !empty($_GET['brand_filter'])) {
-            $brand_id = intval($_GET['brand_filter']);
-            $query->set('meta_query', array(
-                array(
-                    'key' => 'associated_brand',
-                    'value' => '"' . $brand_id . '"', // Use LIKE to handle serialized array
-                    'compare' => 'LIKE'
-                )
-            ));
-        }
-    }
-}
-add_action('pre_get_posts', 'tp_filter_by_brand');
+//     if ($pagenow !== 'edit.php' || !is_admin() || !$query->is_main_query()) {
+//         return;
+//     }
+
+//     error_log('tp_filter_by_brand: pagenow = ' . $pagenow);
+//     error_log('tp_filter_by_brand: post_type = ' . $post_type);
+//     error_log('tp_filter_by_brand: is_admin = ' . is_admin());
+//     error_log('tp_filter_by_brand: is_main_query = ' . $query->is_main_query());
+//     error_log('tp_filter_by_brand: is edit.php = ' . ($pagenow == 'edit.php'));
+//     error_log('tp_filter_by_brand: is listing-page or landing-page = ' . ($post_type == 'listing-page' || $post_type == 'landing-page'));
+
+//     if (is_admin() && $query->is_main_query() && $pagenow == 'edit.php' && ($post_type == 'listing-page' || $post_type == 'landing-page')) {
+//         error_log('tp_filter_by_brand: Inside admin main query check');
+        
+//         if (isset($_GET['brand_filter']) && !empty($_GET['brand_filter'])) {
+//             $brand_id = intval($_GET['brand_filter']);
+//             error_log('tp_filter_by_brand: Brand filter applied, brand_id = ' . $brand_id);
+            
+//             $query->set('meta_query', array(
+//                 array(
+//                     'key' => 'associated_brand',
+//                     'value' => '"' . $brand_id . '"',
+//                     'compare' => 'LIKE'
+//                 )
+//             ));
+//         } else {
+//             error_log('tp_filter_by_brand: Brand filter not set or empty');
+//         }
+//     } else {
+//         error_log('tp_filter_by_brand: Not the admin main query or not the correct post type');
+//     }
+// }
+// add_action('pre_get_posts', 'tp_filter_by_brand');
 
 // Make the custom columns sortable
 function tp_sortable_listing_page_columns($columns) {
