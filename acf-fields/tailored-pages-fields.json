@@ -1019,10 +1019,10 @@
         "fields": [
             {
                 "key": "field_6659a1c39636d",
-                "label": "",
-                "name": "",
+                "label": "Product Selection",
+                "name": "product_selection",
                 "aria-label": "",
-                "type": "text",
+                "type": "relationship",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -1031,11 +1031,20 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "maxlength": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "post_type": [
+                    "landing-page"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
             }
         ],
         "location": [
@@ -1043,7 +1052,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "post"
+                    "value": "listing-page"
                 }
             ]
         ],
