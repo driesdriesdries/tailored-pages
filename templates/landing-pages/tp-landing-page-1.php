@@ -42,21 +42,18 @@ if ($associated_brand_id) {
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main tp-landing-page1">
-        <!-- Brand Information goes here -->
-        <section class="navbar-section">
-            <img src="<?php echo esc_url($brand_logo_url); ?>" alt="<?php echo esc_attr($brand_logo_alt); ?>">
-            <h1><?php echo esc_html($brand_name); ?></h1>
-        </section>
+    
+        <!-- Navbar Section -->
+        <?php
+        $navbar_variables = compact('brand_name', 'brand_logo_url', 'brand_logo_alt', 'brand_colors');
+        include_template_part('navbar-section', $navbar_variables);
+        ?>
         
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="left">
-                Left
-            </div>
-            <div class="right">
-                right
-            </div>
-        </section>
+        <?php
+        $hero_variables = compact('brand_name', 'brand_colors');
+        include_template_part('hero-section', $hero_variables);
+        ?>
 
         <!-- Unique Selling Points -->
         <section class="usp-section">
