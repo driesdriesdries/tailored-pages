@@ -83,63 +83,6 @@ body {
     .case-studies-section {
         background-color: greenyellow;
     }
-    .faq-section {
-        > h3,
-        > p {
-            text-align: center;
-        }
-        .accordion {
-            .accordion-item {
-                overflow: hidden;
-                .accordion-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 100%;
-                    cursor: pointer;
-                    padding: 10px;
-                    text-align: left;
-                    border: none;
-                    outline: none;
-                    transition: background-color 0.3s ease;
-    
-                    h4 {
-                        margin: 0;
-                        font-size: 1.5rem; /* Adjust as needed */
-                    }
-    
-                    .accordion-icon {
-                        font-size: 5rem; /* Icon size */
-                        transition: transform 0.3s ease;
-                    }
-                }
-    
-                .accordion-content {
-                    max-height: 0;
-                    padding: 0 10px;
-                    transition: max-height 0.3s ease, padding 0.3s ease;
-                    overflow: hidden;
-                    //border-top: 1px solid #ccc;
-    
-                    p {
-                        margin: 10px 0;
-                        font-size: 1.6rem; /* Text size inside the panel */
-                    }
-                }
-    
-                &.active {
-                    .accordion-content {
-                        max-height: 200px; /* Adjust based on content */
-                        padding: 10px;
-                    }
-    
-                    .accordion-icon {
-                        transform: rotate(45deg); /* Change '+' to 'x' */
-                    }
-                }
-            }
-        }
-    }
     
     .video-section {
         background-color: red;
@@ -150,11 +93,8 @@ body {
     .media-mentions-section {
         background-color: blueviolet;
     }
-    .cta-section {
-        .content {
-            text-align: center;
-        }
-    }
+    @import "pages/landing-pages/tp-landing-page-1/tp-landing-page1";  // Import the landing page styles
+
     .newsletter-section {
         background-color: bisque;
     }
