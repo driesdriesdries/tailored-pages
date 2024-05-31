@@ -438,8 +438,8 @@ function tp_custom_listing_page_column($column, $post_id) {
                 $associated_brand = $associated_brand[0]; // If it is an array, get the first element
             }
             $brand_title = get_the_title($associated_brand);
-            $brand_link = get_edit_post_link($associated_brand);
-            echo '<a href="' . esc_url($brand_link) . '">' . esc_html($brand_title) . '</a>';
+            $brand_filter_link = add_query_arg('brand_filter', $associated_brand);
+            echo '<a href="' . esc_url($brand_filter_link) . '">' . esc_html($brand_title) . '</a>';
         } else {
             echo __('No Brand Assigned', 'text_domain');
         }
@@ -471,14 +471,34 @@ function tp_custom_landing_page_column($column, $post_id) {
                 $associated_brand = $associated_brand[0]; // If it is an array, get the first element
             }
             $brand_title = get_the_title($associated_brand);
-            $brand_link = get_edit_post_link($associated_brand);
-            echo '<a href="' . esc_url($brand_link) . '">' . esc_html($brand_title) . '</a>';
+            $brand_filter_link = add_query_arg('brand_filter', $associated_brand);
+            echo '<a href="' . esc_url($brand_filter_link) . '">' . esc_html($brand_title) . '</a>';
         } else {
             echo __('No Brand Assigned', 'text_domain');
         }
     }
 }
 add_action('manage_landing-page_posts_custom_column', 'tp_custom_landing_page_column', 10, 2);
+
+// Modify the admin query to filter by brand
+function tp_filter_by_brand($query) {
+    global $pagenow;
+    $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
+
+    if (is_admin() && $query->is_main_query() && $pagenow == 'edit.php' && ($post_type == 'listing-page' || $post_type == 'landing-page')) {
+        if (isset($_GET['brand_filter']) && !empty($_GET['brand_filter'])) {
+            $brand_id = intval($_GET['brand_filter']);
+            $query->set('meta_query', array(
+                array(
+                    'key' => 'associated_brand',
+                    'value' => '"' . $brand_id . '"', // Use LIKE to handle serialized array
+                    'compare' => 'LIKE'
+                )
+            ));
+        }
+    }
+}
+add_action('pre_get_posts', 'tp_filter_by_brand');
 
 // Make the custom columns sortable
 function tp_sortable_listing_page_columns($columns) {
