@@ -6,8 +6,13 @@ get_header();
 ?>
 
 <div id="primary" class="content-area">
-    <main id="main" class="site-main">
-        <h1>TP Listing Page Template 1</h1>
+    <main id="main" class="site-main tp-listing-page1">
+        <section class="hero-section">
+            <h1>Listing page Hero</h1>
+        </section>
+        <section class="products-section">
+            <h1>Products Section</h1>
+        </section>
         
         <?php
         // Get the associated brand ID from post meta

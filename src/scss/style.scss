@@ -50,12 +50,14 @@ body {
     }
 }
 
-.tp-landing-page1 {
-    // background-color: rgb(10, 95, 129);
+@mixin container {
     max-width: 1200px;
     display: flex;
     flex-direction: column;
     margin: auto;
+}
+.tp-landing-page1 {
+    @include container;
     section {
         border: 1px solid black;
         padding: 2.5rem 2rem;
@@ -67,7 +69,7 @@ body {
         }
     }
     .hero-section {
-        background-color: indianred;
+        background-color: chartreuse;
     }
     .usp-section {
         background-color: aliceblue;
@@ -165,4 +167,9 @@ body {
     .footer-section {
         background-color: cadetblue;
     }
+}
+
+.tp-listing-page1 {
+    @include container;
+    background-color: red;
 }
