@@ -103,4 +103,18 @@ body {
 .tp-listing-page1 {
     @include container;
     background-color: red;
+    .hero-section {
+        background-color: green;
+    }
+    .products-section {
+        background-color: blue;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .product-instance {
+            background-color: pink;
+            border: 1px solid black;
+            width: 30rem;
+        }
+    }
 }
