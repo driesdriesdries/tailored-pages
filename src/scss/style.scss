@@ -103,11 +103,19 @@ body {
 .tp-listing-page1 {
     @include container;
     background-color: red;
+    .navbar-section {
+        background-color: rgb(192, 212, 255);
+        text-align: center;
+        img {
+            max-height: 15rem;
+        }
+    }
     .hero-section {
         background-color: green;
+        height: 30rem;
     }
     .products-section {
-        background-color: blue;
+        background-color: rgb(139, 139, 227);
         
         text-align: center;
         .product-instance-group {
@@ -117,11 +125,13 @@ body {
             background-color: yellow;
             border: 1px solid black;
             width: 100%;
+            padding: 2rem;
         }
         .product-instance {
             background-color: pink;
             border: 1px solid black;
             width: 30rem;
+            height: 30rem;
         }
     }
 }

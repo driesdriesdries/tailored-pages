@@ -51,7 +51,6 @@ get_header();
         ?>
 
         <section class="navbar-section">
-            <h1>Navbar Section</h1>
             <?php
             // Display the brand logo in the navbar section
             display_brand_logo($associated_brand_id);
