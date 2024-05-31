@@ -62,6 +62,7 @@ get_header();
         </section>
         <section class="products-section">
             <h2>Products</h2>
+            <div class="product-instance-group">
             <?php
             // Retrieve the selected products using get_post_meta
             $selected_products = get_post_meta(get_the_ID(), 'product_selection', true);
@@ -80,6 +81,7 @@ get_header();
                 echo '<p>No products selected.</p>';
             }
             ?>
+            </div>
         </section>
     </main><!-- #main -->
 </div><!-- #primary -->

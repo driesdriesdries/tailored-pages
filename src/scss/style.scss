@@ -108,9 +108,16 @@ body {
     }
     .products-section {
         background-color: blue;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        
+        text-align: center;
+        .product-instance-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;    
+            background-color: yellow;
+            border: 1px solid black;
+            width: 100%;
+        }
         .product-instance {
             background-color: pink;
             border: 1px solid black;
