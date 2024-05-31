@@ -389,4 +389,30 @@ function tp_enqueue_admin_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'tp_enqueue_admin_scripts');
 
+add_filter('acf/fields/relationship/query/key=field_6659a1c39636d', 'tp_filter_products_by_brand', 10, 3);
+function tp_filter_products_by_brand($args, $field, $post_id) {
+    // Get the associated brand ID
+    $associated_brand = get_field('associated_brand', $post_id);
+
+    if ($associated_brand) {
+        // Ensure it's an array of post objects and get the ID
+        if (is_array($associated_brand)) {
+            $associated_brand = $associated_brand[0]->ID;
+        } else {
+            $associated_brand = $associated_brand->ID;
+        }
+
+        // Modify the query arguments to filter by associated brand
+        $args['meta_query'] = array(
+            array(
+                'key' => 'associated_brand', // The custom field key in the product post type
+                'value' => '"' . $associated_brand . '"',
+                'compare' => 'LIKE'
+            )
+        );
+    }
+
+    return $args;
+}
+
 ?>

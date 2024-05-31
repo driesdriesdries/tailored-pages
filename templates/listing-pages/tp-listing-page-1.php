@@ -61,18 +61,25 @@ get_header();
             <h1>Listing page Hero</h1>
         </section>
         <section class="products-section">
-            <div class="product-instance">
-                <h3>name</h3>
-                <a href="">Link to product</a>
-            </div>
-            <div class="product-instance">
-                <h3>name</h3>
-                <a href="">Link to product</a>
-            </div>
-            <div class="product-instance">
-                <h3>name</h3>
-                <a href="">Link to product</a>
-            </div>
+            <h2>Products</h2>
+            <?php
+            // Retrieve the selected products using get_post_meta
+            $selected_products = get_post_meta(get_the_ID(), 'product_selection', true);
+
+            if ($selected_products && is_array($selected_products)) {
+                foreach ($selected_products as $product_id) {
+                    $product_title = get_the_title($product_id);
+                    $product_link = get_permalink($product_id);
+
+                    echo '<div class="product-instance">';
+                    echo '<h3>' . esc_html($product_title) . '</h3>';
+                    echo '<a href="' . esc_url($product_link) . '">Link to product</a>';
+                    echo '</div>';
+                }
+            } else {
+                echo '<p>No products selected.</p>';
+            }
+            ?>
         </section>
     </main><!-- #main -->
 </div><!-- #primary -->
