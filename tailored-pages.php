@@ -6,19 +6,8 @@
  * Author: Your Name
  */
 
-// Create Parent Menu
-function tp_create_parent_menu() {
-    add_menu_page(
-        __( 'Tailored Pages', 'text_domain' ),
-        __( 'Tailored Pages', 'text_domain' ),
-        'manage_options',
-        'tailored-pages',
-        '',
-        'dashicons-admin-generic',
-        6
-    );
-}
-add_action( 'admin_menu', 'tp_create_parent_menu' );
+// Include admin menus
+include_once plugin_dir_path(__FILE__) . 'includes/admin/admin-menus.php';
 
 // Enqueue the compiled CSS file
 function tp_enqueue_styles() {
