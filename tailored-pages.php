@@ -9,6 +9,7 @@
 // Include admin menus
 require_once plugin_dir_path(__FILE__) . 'includes/admin/admin-menus.php';
 require_once plugin_dir_path(__FILE__) . 'includes/custom-post-types.php';
+//require_once plugin_dir_path(__FILE__) . 'includes/public/public-scripts.php';
 
 // Enqueue the compiled CSS file
 function tp_enqueue_styles() {
