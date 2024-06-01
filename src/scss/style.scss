@@ -139,4 +139,10 @@ body {
 .tp-success-page1 {
     @include container;
     background-color: cyan;
+    .confirmation-box {
+        background-color: tomato;
+        text-align: center;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
 }
