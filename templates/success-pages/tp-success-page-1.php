@@ -1,13 +1,13 @@
 <?php
 /*
-Template Name: TP Brochure Template 1
+Template Name: TP Success Page Template 1
 */
 get_header();
 ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
-        <h1>TP Brochure Template 1</h1>
+        <h1>TP Success Page Template 1</h1>
         
         <?php
         // Get the associated brand ID from post meta

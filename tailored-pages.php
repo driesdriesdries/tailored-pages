@@ -15,11 +15,10 @@ require_once plugin_dir_path(__FILE__) . 'includes/custom-columns.php';
 
 // Include the selected template
 function tp_include_template( $template ) {
-    if ( is_singular(['brochure', 'landing-page', 'listing-page']) ) {
+    if ( is_singular(['brochure', 'landing-page', 'listing-page', 'success-page']) ) {
         global $post;
         $selected_template = get_post_meta( $post->ID, '_tp_selected_template', true );
         if ( $selected_template ) {
-            // Map the template selection to the correct directory
             $template_directory = '';
             $template_file = $selected_template . '.php';
             if ( strpos( $selected_template, 'landing-page' ) !== false ) {
@@ -28,6 +27,8 @@ function tp_include_template( $template ) {
                 $template_directory = 'brochures';
             } elseif ( strpos( $selected_template, 'listing-page' ) !== false ) {
                 $template_directory = 'listing-pages';
+            } elseif ( strpos( $selected_template, 'success-page' ) !== false ) {
+                $template_directory = 'success-pages';
             }
 
             $template_path = plugin_dir_path( __FILE__ ) . 'templates/' . $template_directory . '/' . $template_file;
@@ -46,6 +47,7 @@ function tp_include_template( $template ) {
     return $template;
 }
 add_filter( 'template_include', 'tp_include_template' );
+
 
 function tp_enqueue_admin_scripts($hook) {
     if ('post.php' != $hook && 'post-new.php' != $hook) {
