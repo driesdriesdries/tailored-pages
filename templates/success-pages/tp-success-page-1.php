@@ -5,7 +5,12 @@ get_header();
 
 if ( have_posts() ) :
     while ( have_posts() ) : the_post();
+?>
 
+<div id="primary" class="content-area">
+    <main id="main" class="site-main tp-success-page1">
+
+    <?php
         // Get the selected landing page
         $landing_page_sources = get_field('landing_page_source');
 
@@ -44,7 +49,12 @@ if ( have_posts() ) :
         }
 
         the_content();
+    ?>
 
+    </main><!-- #main -->
+</div><!-- #primary -->
+
+<?php
     endwhile;
 endif;
 
