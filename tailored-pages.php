@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Tailored Pages
  * Description: A plugin to create and manage custom post types for brands, landing pages, brochures, and listing pages.
- * Version: 1.1
- * Author: Your Name
+ * Version: 0.1
+ * Author: Andries Bester
  */
 
 // Include admin menus
