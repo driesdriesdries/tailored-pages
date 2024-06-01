@@ -9,30 +9,8 @@
 // Include admin menus
 require_once plugin_dir_path(__FILE__) . 'includes/admin/admin-menus.php';
 require_once plugin_dir_path(__FILE__) . 'includes/custom-post-types.php';
-//require_once plugin_dir_path(__FILE__) . 'includes/public/public-scripts.php';
+require_once plugin_dir_path(__FILE__) . 'includes/public/public-scripts.php';
 
-// Enqueue the compiled CSS file
-function tp_enqueue_styles() {
-    wp_enqueue_style(
-        'tailored-pages-styles',
-        plugins_url('dist/css/style.css', __FILE__),
-        array(),
-        filemtime(plugin_dir_path(__FILE__) . 'dist/css/style.css')
-    );
-}
-add_action('wp_enqueue_scripts', 'tp_enqueue_styles');
-
-// Enqueue accordion.js file for the front end
-function tp_enqueue_accordion_script() {
-    wp_enqueue_script(
-        'tp-accordion-js',
-        plugins_url('js/accordion.js', __FILE__),
-        array('jquery'),
-        filemtime(plugin_dir_path(__FILE__) . 'js/accordion.js'),
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'tp_enqueue_accordion_script');
 
 // Add Meta Box for Template Selection
 function tp_add_template_meta_box() {
@@ -261,45 +239,6 @@ function tp_custom_landing_page_column($column, $post_id) {
     }
 }
 add_action('manage_landing-page_posts_custom_column', 'tp_custom_landing_page_column', 10, 2);
-
-// // Modify the admin query to filter by brand
-// function tp_filter_by_brand($query) {
-//     global $pagenow;
-//     $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
-
-//     if ($pagenow !== 'edit.php' || !is_admin() || !$query->is_main_query()) {
-//         return;
-//     }
-
-//     error_log('tp_filter_by_brand: pagenow = ' . $pagenow);
-//     error_log('tp_filter_by_brand: post_type = ' . $post_type);
-//     error_log('tp_filter_by_brand: is_admin = ' . is_admin());
-//     error_log('tp_filter_by_brand: is_main_query = ' . $query->is_main_query());
-//     error_log('tp_filter_by_brand: is edit.php = ' . ($pagenow == 'edit.php'));
-//     error_log('tp_filter_by_brand: is listing-page or landing-page = ' . ($post_type == 'listing-page' || $post_type == 'landing-page'));
-
-//     if (is_admin() && $query->is_main_query() && $pagenow == 'edit.php' && ($post_type == 'listing-page' || $post_type == 'landing-page')) {
-//         error_log('tp_filter_by_brand: Inside admin main query check');
-        
-//         if (isset($_GET['brand_filter']) && !empty($_GET['brand_filter'])) {
-//             $brand_id = intval($_GET['brand_filter']);
-//             error_log('tp_filter_by_brand: Brand filter applied, brand_id = ' . $brand_id);
-            
-//             $query->set('meta_query', array(
-//                 array(
-//                     'key' => 'associated_brand',
-//                     'value' => '"' . $brand_id . '"',
-//                     'compare' => 'LIKE'
-//                 )
-//             ));
-//         } else {
-//             error_log('tp_filter_by_brand: Brand filter not set or empty');
-//         }
-//     } else {
-//         error_log('tp_filter_by_brand: Not the admin main query or not the correct post type');
-//     }
-// }
-// add_action('pre_get_posts', 'tp_filter_by_brand');
 
 // Make the custom columns sortable
 function tp_sortable_listing_page_columns($columns) {
