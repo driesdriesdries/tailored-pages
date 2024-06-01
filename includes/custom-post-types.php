@@ -155,38 +155,38 @@ function tp_register_custom_post_types() {
     );
     register_post_type( 'landing-page', $args );
 
-    // Register Brochure Post Type
+    // Register Success Page Post Type
     $labels = array(
-        'name'                  => _x( 'Brochures', 'Post Type General Name', 'text_domain' ),
-        'singular_name'         => _x( 'Brochure', 'Post Type Singular Name', 'text_domain' ),
-        'menu_name'             => __( 'Brochures', 'text_domain' ),
-        'name_admin_bar'        => __( 'Brochure', 'text_domain' ),
-        'archives'              => __( 'Brochure Archives', 'text_domain' ),
-        'attributes'            => __( 'Brochure Attributes', 'text_domain' ),
-        'parent_item_colon'     => __( 'Parent Brochure:', 'text_domain' ),
-        'all_items'             => __( 'All Brochures', 'text_domain' ),
-        'add_new_item'          => __( 'Add New Brochure', 'text_domain' ),
+        'name'                  => _x( 'Success Pages', 'Post Type General Name', 'text_domain' ),
+        'singular_name'         => _x( 'Success Page', 'Post Type Singular Name', 'text_domain' ),
+        'menu_name'             => __( 'Success Pages', 'text_domain' ),
+        'name_admin_bar'        => __( 'Success Page', 'text_domain' ),
+        'archives'              => __( 'Success Page Archives', 'text_domain' ),
+        'attributes'            => __( 'Success Page Attributes', 'text_domain' ),
+        'parent_item_colon'     => __( 'Parent Success Page:', 'text_domain' ),
+        'all_items'             => __( 'All Success Pages', 'text_domain' ),
+        'add_new_item'          => __( 'Add New Success Page', 'text_domain' ),
         'add_new'               => __( 'Add New', 'text_domain' ),
-        'new_item'              => __( 'New Brochure', 'text_domain' ),
-        'edit_item'             => __( 'Edit Brochure', 'text_domain' ),
-        'update_item'           => __( 'Update Brochure', 'text_domain' ),
-        'view_item'             => __( 'View Brochure', 'text_domain' ),
-        'view_items'            => __( 'View Brochures', 'text_domain' ),
-        'search_items'          => __( 'Search Brochure', 'text_domain' ),
+        'new_item'              => __( 'New Success Page', 'text_domain' ),
+        'edit_item'             => __( 'Edit Success Page', 'text_domain' ),
+        'update_item'           => __( 'Update Success Page', 'text_domain' ),
+        'view_item'             => __( 'View Success Page', 'text_domain' ),
+        'view_items'            => __( 'View Success Pages', 'text_domain' ),
+        'search_items'          => __( 'Search Success Page', 'text_domain' ),
         'not_found'             => __( 'Not found', 'text_domain' ),
         'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
         'featured_image'        => __( 'Featured Image', 'text_domain' ),
         'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
         'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
         'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-        'insert_into_item'      => __( 'Insert into brochure', 'text_domain' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this brochure', 'text_domain' ),
-        'items_list'            => __( 'Brochures list', 'text_domain' ),
-        'items_list_navigation' => __( 'Brochures list navigation', 'text_domain' ),
-        'filter_items_list'     => __( 'Filter brochures list', 'text_domain' ),
+        'insert_into_item'      => __( 'Insert into success page', 'text_domain' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this success page', 'text_domain' ),
+        'items_list'            => __( 'Success Pages list', 'text_domain' ),
+        'items_list_navigation' => __( 'Success Pages list navigation', 'text_domain' ),
+        'filter_items_list'     => __( 'Filter success pages list', 'text_domain' ),
     );
     $args = array(
-        'label'                 => __( 'Brochure', 'text_domain' ),
+        'label'                 => __( 'Success Page', 'text_domain' ),
         'description'           => __( 'Post Type Description', 'text_domain' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'editor', 'thumbnail' ),
@@ -204,7 +204,8 @@ function tp_register_custom_post_types() {
         'publicly_queryable'    => true,
         'capability_type'       => 'post',
     );
-    register_post_type( 'brochure', $args );
+    register_post_type( 'success-page', $args );
 
 }
 add_action( 'init', 'tp_register_custom_post_types', 0 );
+?>

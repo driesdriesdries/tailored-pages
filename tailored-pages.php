@@ -15,11 +15,10 @@ require_once plugin_dir_path(__FILE__) . 'includes/custom-columns.php';
 
 // Include the selected template
 function tp_include_template( $template ) {
-    if ( is_singular(['brochure', 'landing-page', 'listing-page']) ) {
+    if ( is_singular(['brochure', 'landing-page', 'listing-page', 'success-page']) ) {
         global $post;
         $selected_template = get_post_meta( $post->ID, '_tp_selected_template', true );
         if ( $selected_template ) {
-            // Map the template selection to the correct directory
             $template_directory = '';
             $template_file = $selected_template . '.php';
             if ( strpos( $selected_template, 'landing-page' ) !== false ) {
@@ -28,6 +27,8 @@ function tp_include_template( $template ) {
                 $template_directory = 'brochures';
             } elseif ( strpos( $selected_template, 'listing-page' ) !== false ) {
                 $template_directory = 'listing-pages';
+            } elseif ( strpos( $selected_template, 'success-page' ) !== false ) {
+                $template_directory = 'success-pages';
             }
 
             $template_path = plugin_dir_path( __FILE__ ) . 'templates/' . $template_directory . '/' . $template_file;
@@ -46,6 +47,7 @@ function tp_include_template( $template ) {
     return $template;
 }
 add_filter( 'template_include', 'tp_include_template' );
+
 
 function tp_enqueue_admin_scripts($hook) {
     if ('post.php' != $hook && 'post-new.php' != $hook) {
@@ -93,30 +95,30 @@ function tp_enqueue_admin_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'tp_enqueue_admin_scripts');
 
-add_filter('acf/fields/relationship/query/key=field_6659a1c39636d', 'tp_filter_products_by_brand', 10, 3);
-function tp_filter_products_by_brand($args, $field, $post_id) {
-    // Get the associated brand ID
-    $associated_brand = get_field('associated_brand', $post_id);
+// add_filter('acf/fields/relationship/query/key=field_6659a1c39636d', 'tp_filter_products_by_brand', 10, 3);
+// function tp_filter_products_by_brand($args, $field, $post_id) {
+//     // Get the associated brand ID
+//     $associated_brand = get_field('associated_brand', $post_id);
 
-    if ($associated_brand) {
-        // Ensure it's an array of post objects and get the ID
-        if (is_array($associated_brand)) {
-            $associated_brand = $associated_brand[0]->ID;
-        } else {
-            $associated_brand = $associated_brand->ID;
-        }
+//     if ($associated_brand) {
+//         // Ensure it's an array of post objects and get the ID
+//         if (is_array($associated_brand)) {
+//             $associated_brand = $associated_brand[0]->ID;
+//         } else {
+//             $associated_brand = $associated_brand->ID;
+//         }
 
-        // Modify the query arguments to filter by associated brand
-        $args['meta_query'] = array(
-            array(
-                'key' => 'associated_brand', // The custom field key in the product post type
-                'value' => '"' . $associated_brand . '"',
-                'compare' => 'LIKE'
-            )
-        );
-    }
+//         // Modify the query arguments to filter by associated brand
+//         $args['meta_query'] = array(
+//             array(
+//                 'key' => 'associated_brand', // The custom field key in the product post type
+//                 'value' => '"' . $associated_brand . '"',
+//                 'compare' => 'LIKE'
+//             )
+//         );
+//     }
 
-    return $args;
-}
+//     return $args;
+// }
 
 ?>

@@ -15,6 +15,7 @@ function tp_filter_by_assigned_brand($query) {
 }
 add_action('pre_get_posts', 'tp_filter_by_assigned_brand');
 
+
 // Add custom columns to Listing Page post type
 function tp_add_listing_page_columns($columns) {
     $new_columns = array();
