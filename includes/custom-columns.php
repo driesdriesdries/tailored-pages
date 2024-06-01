@@ -1,4 +1,20 @@
 <?php 
+// Modify the query to filter by brand
+function tp_filter_by_assigned_brand($query) {
+    // Only modify the main query in the admin area
+    if (is_admin() && $query->is_main_query() && !empty($_GET['brand_filter'])) {
+        $meta_query = array(
+            array(
+                'key' => 'associated_brand',
+                'value' => sanitize_text_field($_GET['brand_filter']),
+                'compare' => 'LIKE'
+            )
+        );
+        $query->set('meta_query', $meta_query);
+    }
+}
+add_action('pre_get_posts', 'tp_filter_by_assigned_brand');
+
 // Add custom columns to Listing Page post type
 function tp_add_listing_page_columns($columns) {
     $new_columns = array();
@@ -23,7 +39,7 @@ function tp_custom_listing_page_column($column, $post_id) {
                 $associated_brand = $associated_brand[0]; // If it is an array, get the first element
             }
             $brand_title = get_the_title($associated_brand);
-            $brand_filter_link = add_query_arg('brand_filter', $associated_brand);
+            $brand_filter_link = add_query_arg(array('post_type' => 'listing-page', 'brand_filter' => $associated_brand), admin_url('edit.php'));
             echo '<a href="' . esc_url($brand_filter_link) . '">' . esc_html($brand_title) . '</a>';
         } else {
             echo __('No Brand Assigned', 'text_domain');
@@ -56,7 +72,7 @@ function tp_custom_landing_page_column($column, $post_id) {
                 $associated_brand = $associated_brand[0]; // If it is an array, get the first element
             }
             $brand_title = get_the_title($associated_brand);
-            $brand_filter_link = add_query_arg('brand_filter', $associated_brand);
+            $brand_filter_link = add_query_arg(array('post_type' => 'landing-page', 'brand_filter' => $associated_brand), admin_url('edit.php'));
             echo '<a href="' . esc_url($brand_filter_link) . '">' . esc_html($brand_title) . '</a>';
         } else {
             echo __('No Brand Assigned', 'text_domain');
