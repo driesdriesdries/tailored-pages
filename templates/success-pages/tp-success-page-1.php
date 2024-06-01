@@ -1,55 +1,52 @@
 <?php
-/*
-Template Name: TP Success Page Template 1
-*/
+// Template for Success Page
+
 get_header();
-?>
 
-<div id="primary" class="content-area">
-    <main id="main" class="site-main">
-        <h1>TP Success Page Template 1</h1>
-        
-        <?php
-        // Get the associated brand ID from post meta
-        $associated_brand_ids = get_post_meta(get_the_ID(), 'associated_brand', true);
-        
-        // Check if the associated brand ID is an array and get the first element
-        if (is_array($associated_brand_ids) && !empty($associated_brand_ids)) {
-            $associated_brand_id = $associated_brand_ids[0];
-        } else {
-            $associated_brand_id = $associated_brand_ids;
-        }
+if ( have_posts() ) :
+    while ( have_posts() ) : the_post();
 
-        if ($associated_brand_id) {
-            // Retrieve the brand logo from the brand post meta
-            $brand_logo_id = get_post_meta($associated_brand_id, 'brand_logo', true);
-            // Retrieve the brand name
-            $brand_name = get_the_title($associated_brand_id);
+        // Get the selected landing page
+        $landing_page_sources = get_field('landing_page_source');
 
-            if ($brand_logo_id) {
-                // Assuming the brand logo is an image ID
-                $brand_logo_url = wp_get_attachment_image_url($brand_logo_id, 'full');
-                $brand_logo_alt = get_post_meta($brand_logo_id, '_wp_attachment_image_alt', true);
+        if ( $landing_page_sources ) {
+            foreach ($landing_page_sources as $landing_page_source) {
+                $landing_page_title = get_the_title( $landing_page_source->ID );
+                $landing_page_link = get_permalink( $landing_page_source->ID );
 
-                echo '<div class="brand-logo">';
-                echo '<img src="' . esc_url($brand_logo_url) . '" alt="' . esc_attr($brand_logo_alt) . '">';
-                echo '</div>';
-            } else {
-                echo 'No brand logo found.';
-            }
+                echo '<p>This success page is linked from the landing page: <a href="' . esc_url( $landing_page_link ) . '">' . esc_html( $landing_page_title ) . '</a></p>';
 
-            if ($brand_name) {
-                echo '<h2>' . esc_html($brand_name) . '</h2>';
-            } else {
-                echo 'No brand name found.';
+                // Fetch associated brand from the landing page
+                $associated_brand = get_field('associated_brand', $landing_page_source->ID);
+
+                if ($associated_brand) {
+                    $brand_id = is_array($associated_brand) ? $associated_brand[0]->ID : $associated_brand->ID;
+
+                    // Get brand colors
+                    $primary_color = get_field('primary_color', $brand_id);
+                    $secondary_color = get_field('secondary_color', $brand_id);
+                    $tertiary_color = get_field('tertiary_color', $brand_id);
+                    $quaternary_color = get_field('quaternary_color', $brand_id);
+                    $quinary_color = get_field('quinary_color', $brand_id);
+
+                    // Output the brand colors
+                    echo '<div style="background-color: ' . esc_attr($primary_color) . ';">Primary Color</div>';
+                    echo '<div style="background-color: ' . esc_attr($secondary_color) . ';">Secondary Color</div>';
+                    echo '<div style="background-color: ' . esc_attr($tertiary_color) . ';">Tertiary Color</div>';
+                    echo '<div style="background-color: ' . esc_attr($quaternary_color) . ';">Quaternary Color</div>';
+                    echo '<div style="background-color: ' . esc_attr($quinary_color) . ';">Quinary Color</div>';
+                } else {
+                    echo '<p>No associated brand found for the landing page.</p>';
+                }
             }
         } else {
-            echo 'No associated brand.';
+            echo '<p>No linked landing page found.</p>';
         }
-        ?>
-    </main><!-- #main -->
-</div><!-- #primary -->
 
-<?php
+        the_content();
+
+    endwhile;
+endif;
+
 get_footer();
 ?>
