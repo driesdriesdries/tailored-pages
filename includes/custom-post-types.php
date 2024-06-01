@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Register Custom Post Types
 function tp_register_custom_post_types() {
 
