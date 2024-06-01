@@ -1,7 +1,7 @@
 <?php
 // Add Meta Box for Template Selection
 function tp_add_template_meta_box() {
-    $screens = ['brochure', 'landing-page', 'listing-page'];
+    $screens = ['success-page', 'landing-page', 'listing-page'];
     foreach ($screens as $screen) {
         add_meta_box(
             'tp_template_selection',
@@ -20,8 +20,8 @@ function tp_template_meta_box_callback($post) {
     $options = [];
     if ($post->post_type === 'landing-page') {
         $options = ['tp-landing-page-1' => 'Landing Page Template 1'];
-    } elseif ($post->post_type === 'brochure') {
-        $options = ['tp-brochure-1' => 'Brochure Template 1'];
+    } elseif ($post->post_type === 'success-page') {
+        $options = ['tp-success-page-1' => 'Success Page Template 1'];
     } elseif ($post->post_type === 'listing-page') {
         $options = ['tp-listing-page-1' => 'Listing Page Template 1'];
     }
