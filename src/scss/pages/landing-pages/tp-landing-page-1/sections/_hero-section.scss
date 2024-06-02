@@ -1,3 +1,65 @@
 .hero-section {
-    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006-e1697471244240.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 4em 2em;
+    color: #fff;
+
+    .hero-content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+
+        .hero-text {
+            flex: 1;
+            margin-right: 2em;
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 0.5em;
+            }
+        }
+
+        .hero-form {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2em;
+            border-radius: 8px;
+
+            .form-group {
+                margin-bottom: 1em;
+
+                label {
+                    display: block;
+                    margin-bottom: 0.5em;
+                }
+
+                input[type="text"],
+                input[type="email"] {
+                    width: 100%;
+                    padding: 0.5em;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+            }
+
+            button {
+                padding: 0.5em 2em;
+                background-color: #0073aa;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #005177;
+                }
+            }
+        }
+    }
 }
