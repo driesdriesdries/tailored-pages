@@ -79,24 +79,12 @@ body {
     .features-section {
         background-color: aqua;
     }
-    .testimonial-section {
-        background-color: azure;
-    }
-    .case-studies-section {
-        background-color: greenyellow;
-    }
-    
-    .video-section {
-        background-color: red;
-    }
     .about-us-section {
         background-color: blue;
     }
     .media-mentions-section {
         background-color: blueviolet;
     }
-    @import "pages/landing-pages/tp-landing-page-1/tp-landing-page1";  // Import the landing page styles
-
     .newsletter-section {
         background-color: bisque;
     }
@@ -109,6 +97,7 @@ body {
     .footer-section {
         background-color: cadetblue;
     }
+    @import "pages/landing-pages/tp-landing-page-1/tp-landing-page1";  // Import the landing page styles
 }
 
 .tp-listing-page1 {
