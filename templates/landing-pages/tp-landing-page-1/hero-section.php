@@ -1,5 +1,10 @@
 <!-- Hero Section -->
-<section class="hero-section" style="background-image: url('https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006-e1697471244240.jpg');">
+<?php
+// Get the background image URL from the post meta
+$background_image_id = get_post_meta(get_the_ID(), 'hero_section_background_image', true);
+$background_image_url = $background_image_id ? wp_get_attachment_image_url($background_image_id, 'hero-background') : 'https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006-e1697471244240.jpg';
+?>
+<section class="hero-section" style="background-image: url('<?php echo esc_url($background_image_url); ?>');">
     <div class="hero-content">
         <div class="hero-text">
             <h1>Hero section will go here</h1>

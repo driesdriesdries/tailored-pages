@@ -130,9 +130,6 @@ function tp_handle_form_submission() {
         $marketing_consent = isset($_POST['marketing_consent']) ? 1 : 0;
         $landing_page_id = intval($_POST['landing_page_id']);
 
-        // Debug: Check landing page ID
-        error_log('Landing Page ID: ' . $landing_page_id);
-
         // Save the data to a custom post type
         $new_post = array(
             'post_title'    => $first_name . ' ' . $last_name,
@@ -147,33 +144,33 @@ function tp_handle_form_submission() {
             update_post_meta($post_id, 'marketing_consent', $marketing_consent);
         }
 
-        // Query for the success page that has this landing page selected in its ACF field
-        $success_page_query = new WP_Query(array(
-            'post_type' => 'success-page',
-            'meta_query' => array(
-                array(
-                    'key' => 'landing_page_source', // ACF field name
-                    'value' => $landing_page_id,
-                    'compare' => 'LIKE'
+        // Check if there's a cached success page URL
+        $cache_key = 'success_page_' . $landing_page_id;
+        $success_page_url = get_transient($cache_key);
+
+        if ($success_page_url === false) {
+            // Query for the success page that has this landing page selected in its ACF field
+            $success_page_query = new WP_Query(array(
+                'post_type' => 'success-page',
+                'meta_query' => array(
+                    array(
+                        'key' => 'landing_page_source', // ACF field name
+                        'value' => '"' . $landing_page_id . '"',
+                        'compare' => 'LIKE'
+                    )
                 )
-            )
-        ));
+            ));
 
-        // Debug: Check if success page query returns any posts
-        error_log('Success Page Query Found Posts: ' . $success_page_query->found_posts);
-
-        if ($success_page_query->have_posts()) {
-            $success_page_query->the_post();
-            $success_page_url = get_permalink();
-            wp_reset_postdata();
-        } else {
-            // Debug: No success page found
-            error_log('No success page found for Landing Page ID: ' . $landing_page_id);
-            $success_page_url = home_url('/');
+            if ($success_page_query->have_posts()) {
+                $success_page_query->the_post();
+                $success_page_url = get_permalink();
+                wp_reset_postdata();
+                // Cache the success page URL for 12 hours
+                set_transient($cache_key, $success_page_url, 12 * HOUR_IN_SECONDS);
+            } else {
+                $success_page_url = home_url('/');
+            }
         }
-
-        // Debug: Check success page URL
-        error_log('Redirecting to Success Page URL: ' . $success_page_url);
 
         // Redirect after processing
         wp_redirect($success_page_url);
@@ -182,5 +179,11 @@ function tp_handle_form_submission() {
 }
 add_action('admin_post_nopriv_submit_landing_page_form', 'tp_handle_form_submission');
 add_action('admin_post_submit_landing_page_form', 'tp_handle_form_submission');
+
+
+add_action('after_setup_theme', 'custom_image_sizes');
+function custom_image_sizes() {
+    add_image_size('hero-background', 1920, 1080, true); // Example size, adjust as needed
+}
 
 ?>
