@@ -29,6 +29,7 @@
                 </div>
                 
                 <input type="hidden" name="action" value="submit_landing_page_form">
+                <input type="hidden" name="landing_page_id" value="<?php echo get_the_ID(); ?>">
                 <button type="submit">Submit</button>
             </form>
         </div>

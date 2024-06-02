@@ -121,4 +121,66 @@ add_action('admin_enqueue_scripts', 'tp_enqueue_admin_scripts');
 //     return $args;
 // }
 
+function tp_handle_form_submission() {
+    if (isset($_POST['action']) && $_POST['action'] === 'submit_landing_page_form') {
+        // Sanitize and process form input
+        $first_name = sanitize_text_field($_POST['first_name']);
+        $last_name = sanitize_text_field($_POST['last_name']);
+        $email_address = sanitize_email($_POST['email_address']);
+        $marketing_consent = isset($_POST['marketing_consent']) ? 1 : 0;
+        $landing_page_id = intval($_POST['landing_page_id']);
+
+        // Debug: Check landing page ID
+        error_log('Landing Page ID: ' . $landing_page_id);
+
+        // Save the data to a custom post type
+        $new_post = array(
+            'post_title'    => $first_name . ' ' . $last_name,
+            'post_type'     => 'lead',
+            'post_status'   => 'publish',
+        );
+
+        $post_id = wp_insert_post($new_post);
+
+        if ($post_id) {
+            update_post_meta($post_id, 'email_address', $email_address);
+            update_post_meta($post_id, 'marketing_consent', $marketing_consent);
+        }
+
+        // Query for the success page that has this landing page selected in its ACF field
+        $success_page_query = new WP_Query(array(
+            'post_type' => 'success-page',
+            'meta_query' => array(
+                array(
+                    'key' => 'landing_page_source', // ACF field name
+                    'value' => $landing_page_id,
+                    'compare' => 'LIKE'
+                )
+            )
+        ));
+
+        // Debug: Check if success page query returns any posts
+        error_log('Success Page Query Found Posts: ' . $success_page_query->found_posts);
+
+        if ($success_page_query->have_posts()) {
+            $success_page_query->the_post();
+            $success_page_url = get_permalink();
+            wp_reset_postdata();
+        } else {
+            // Debug: No success page found
+            error_log('No success page found for Landing Page ID: ' . $landing_page_id);
+            $success_page_url = home_url('/');
+        }
+
+        // Debug: Check success page URL
+        error_log('Redirecting to Success Page URL: ' . $success_page_url);
+
+        // Redirect after processing
+        wp_redirect($success_page_url);
+        exit;
+    }
+}
+add_action('admin_post_nopriv_submit_landing_page_form', 'tp_handle_form_submission');
+add_action('admin_post_submit_landing_page_form', 'tp_handle_form_submission');
+
 ?>
