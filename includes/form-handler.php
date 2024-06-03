@@ -1,4 +1,27 @@
 <?php
+
+function tp_enqueue_form_validation_script() {
+    // Adjust the path as per your directory structure
+    $file_path = plugin_dir_path(__FILE__) . '../js/form-validation.js';
+    $file_url = plugins_url('../js/form-validation.js', __FILE__);
+
+    error_log('Resolved file path: ' . $file_path); // Add this line for debugging
+
+    if (file_exists($file_path)) {
+        wp_enqueue_script(
+            'tp-form-validation-js',
+            $file_url,
+            array('jquery'),
+            filemtime($file_path), // Use filemtime to set version
+            true
+        );
+    } else {
+        error_log('Form validation script file does not exist: ' . $file_path);
+    }
+}
+add_action('wp_enqueue_scripts', 'tp_enqueue_form_validation_script');
+
+
 function tp_handle_form_submission() {
     if (isset($_POST['action']) && $_POST['action'] === 'submit_landing_page_form') {
         global $wpdb;
