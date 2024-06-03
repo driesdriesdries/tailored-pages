@@ -38,7 +38,7 @@ $associated_product_title = get_the_title(get_the_ID());
                 
                 <div class="form-group">
                     <label for="marketing-consent">
-                        <input type="checkbox" id="marketing-consent" name="marketing_consent">
+                        <input type="checkbox" id="marketing-consent" name="marketing_consent" value="yes">
                         I agree to receive marketing communications
                     </label>
                 </div>

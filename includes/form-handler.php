@@ -7,11 +7,14 @@ function tp_handle_form_submission() {
         $first_name = sanitize_text_field($_POST['first_name']);
         $last_name = sanitize_text_field($_POST['last_name']);
         $email_address = sanitize_email($_POST['email_address']);
-        $marketing_consent = isset($_POST['marketing_consent']) ? 1 : 0;
+        $marketing_consent = isset($_POST['marketing_consent']) && $_POST['marketing_consent'] === 'yes' ? 'yes' : 'no';
         $time = current_time('mysql');
         $landing_page_id = intval($_POST['landing_page_id']);
         $associated_brand_id = sanitize_text_field($_POST['associated_brand']);
         $associated_product_title = sanitize_text_field($_POST['associated_product']);
+
+        // Log the form input for debugging
+        error_log("Form Input: first_name=$first_name, last_name=$last_name, email_address=$email_address, marketing_consent=$marketing_consent, landing_page_id=$landing_page_id, associated_brand_id=$associated_brand_id, associated_product_title=$associated_product_title");
 
         // Retrieve brand name
         $associated_brand_name = get_the_title($associated_brand_id);
@@ -30,6 +33,13 @@ function tp_handle_form_submission() {
                 'associated_product' => $associated_product_title,
             )
         );
+
+        // Log the result of the insert operation for debugging
+        if ($wpdb->last_error) {
+            error_log("Database Insert Error: " . $wpdb->last_error);
+        } else {
+            error_log("Data Inserted Successfully");
+        }
 
         // Check if there's a cached success page URL
         $cache_key = 'success_page_' . $landing_page_id;
@@ -59,6 +69,9 @@ function tp_handle_form_submission() {
             }
         }
 
+        // Log the redirection URL for debugging
+        error_log("Redirecting to: $success_page_url");
+
         // Redirect after processing
         wp_redirect($success_page_url);
         exit;
@@ -80,7 +93,7 @@ function tp_create_custom_table() {
         first_name tinytext NOT NULL,
         last_name tinytext NOT NULL,
         email_address varchar(100) NOT NULL,
-        marketing_consent boolean DEFAULT false NOT NULL,
+        marketing_consent varchar(3) DEFAULT 'no' NOT NULL,
         associated_brand tinytext NOT NULL,
         associated_product tinytext NOT NULL,
         PRIMARY KEY  (id)
