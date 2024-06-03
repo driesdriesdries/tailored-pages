@@ -140,11 +140,11 @@ body {
 .tp-success-page1 {
     @include container;
     @include fade-in(.5s, 0.5s); // Fades in over .5 seconds with a 0.5-second delay
-    background-color: cyan;
+    
     .confirmation-box {
-        background-color: tomato;
         text-align: center;
         padding-top: 10rem;
         padding-bottom: 10rem;
+        border: 2px solid black;
     }
 }
