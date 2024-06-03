@@ -11,11 +11,10 @@ function tp_handle_form_submission() {
         $time = current_time('mysql');
         $landing_page_id = intval($_POST['landing_page_id']);
         $associated_brand_id = sanitize_text_field($_POST['associated_brand']);
-        $associated_product_id = sanitize_text_field($_POST['associated_product']);
+        $associated_product_title = sanitize_text_field($_POST['associated_product']);
 
-        // Retrieve brand name and product title
+        // Retrieve brand name
         $associated_brand_name = get_the_title($associated_brand_id);
-        $associated_product_title = get_the_title($associated_product_id);
 
         // Insert data into custom table
         $table_name = $wpdb->prefix . 'tp_leads';
@@ -96,7 +95,6 @@ function tp_create_custom_table() {
         error_log('Custom Table Created Successfully: ' . $table_name);
     }
 }
-
 
 function tp_register_export_page() {
     add_submenu_page(

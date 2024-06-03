@@ -4,13 +4,15 @@
 $background_image_id = get_post_meta(get_the_ID(), 'hero_section_background_image', true);
 $background_image_url = $background_image_id ? wp_get_attachment_image_url($background_image_id, 'hero-background') : 'https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006-e1697471244240.jpg';
 
-// Get associated brand and product values
+// Get associated brand value
 $associated_brand = get_field('associated_brand', get_the_ID()); // Assuming you're using ACF for this
-$associated_product = get_field('associated_product', get_the_ID()); // Assuming you're using ACF for this
 
-// Ensure they are IDs
+// Ensure it's an ID
 $associated_brand_id = is_array($associated_brand) && !empty($associated_brand) ? $associated_brand[0]->ID : $associated_brand;
-$associated_product_id = is_array($associated_product) && !empty($associated_product) ? $associated_product[0]->ID : $associated_product;
+
+// Use the current post title as the associated product
+$associated_product_title = get_the_title(get_the_ID());
+
 ?>
 <section class="hero-section" style="background-image: url('<?php echo esc_url($background_image_url); ?>');">
     <div class="hero-content">
@@ -44,7 +46,7 @@ $associated_product_id = is_array($associated_product) && !empty($associated_pro
                 <input type="hidden" name="action" value="submit_landing_page_form">
                 <input type="hidden" name="landing_page_id" value="<?php echo get_the_ID(); ?>">
                 <input type="hidden" name="associated_brand" value="<?php echo esc_attr($associated_brand_id); ?>">
-                <input type="hidden" name="associated_product" value="<?php echo esc_attr($associated_product_id); ?>">
+                <input type="hidden" name="associated_product" value="<?php echo esc_attr($associated_product_title); ?>">
                 <button type="submit">Submit</button>
             </form>
         </div>
