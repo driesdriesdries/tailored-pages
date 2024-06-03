@@ -10,6 +10,12 @@ function tp_handle_form_submission() {
         $marketing_consent = isset($_POST['marketing_consent']) ? 1 : 0;
         $time = current_time('mysql');
         $landing_page_id = intval($_POST['landing_page_id']);
+        $associated_brand_id = sanitize_text_field($_POST['associated_brand']);
+        $associated_product_id = sanitize_text_field($_POST['associated_product']);
+
+        // Retrieve brand name and product title
+        $associated_brand_name = get_the_title($associated_brand_id);
+        $associated_product_title = get_the_title($associated_product_id);
 
         // Insert data into custom table
         $table_name = $wpdb->prefix . 'tp_leads';
@@ -21,6 +27,8 @@ function tp_handle_form_submission() {
                 'last_name' => $last_name,
                 'email_address' => $email_address,
                 'marketing_consent' => $marketing_consent,
+                'associated_brand' => $associated_brand_name,
+                'associated_product' => $associated_product_title,
             )
         );
 
@@ -59,6 +67,7 @@ function tp_handle_form_submission() {
 }
 add_action('admin_post_nopriv_submit_landing_page_form', 'tp_handle_form_submission');
 add_action('admin_post_submit_landing_page_form', 'tp_handle_form_submission');
+
 
 // Custom table creation function
 function tp_create_custom_table() {
