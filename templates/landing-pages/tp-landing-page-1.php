@@ -65,10 +65,11 @@ if ($associated_brand_id) {
             <h1>Features and benefits content</h1>
         </section>
 
-        <!-- Testimonial Area -->
-        <section class="testimonial-section">
-            <h1>Testimonials content</h1>
-        </section>
+        <!-- Testimonial Section -->
+        <?php
+        $testimonial_variables = compact('brand_colors');
+        include_template_part('testimonial-section', $testimonial_variables);
+        ?>
 
         <!-- Call-to-Action Section -->
         <?php
