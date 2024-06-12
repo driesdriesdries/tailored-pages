@@ -6,34 +6,6 @@
 .tp-landing-page1 {
     @include container;
     @include fade-in(.5s, 0.5s); // Fades in over .5 seconds with a 0.5-second delay
-    section {
-        border: 1px solid black;
-        padding: 2.5rem 2rem;
-    }
-    .usp-section {
-        background-color: aliceblue;
-    }
-    .features-section {
-        background-color: aqua;
-    }
-    .about-us-section {
-        background-color: blue;
-    }
-    .media-mentions-section {
-        background-color: blueviolet;
-    }
-    .newsletter-section {
-        background-color: bisque;
-    }
-    .contact-section {
-        background-color: pink;
-    }
-    .social-proof-section {
-        background-color: burlywood;
-    }
-    .footer-section {
-        background-color: cadetblue;
-    }
     @import "pages/landing-pages/tp-landing-page-1/tp-landing-page1";  // Import the landing page styles
 }
 
