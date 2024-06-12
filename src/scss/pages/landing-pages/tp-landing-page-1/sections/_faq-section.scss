@@ -1,4 +1,5 @@
 .faq-section {
+    @include section-vertical-padding;
     > h3,
     > p {
         text-align: center;
