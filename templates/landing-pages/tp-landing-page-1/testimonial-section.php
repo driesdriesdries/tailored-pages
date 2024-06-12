@@ -4,15 +4,20 @@ $queries_before = get_num_queries();
 global $wpdb;
 $queries_before_list = $wpdb->queries;
 
-// Get the testimonial section background color
-$testimonial_background_color = get_field('testimonial_section_background_color');
+// Get the testimonial section background color and text color using get_post_meta
+$post_id = get_the_ID();
+$testimonial_background_color = get_post_meta($post_id, 'testimonial_section_background_color', true);
+$testimonial_text_color = get_post_meta($post_id, 'testimonial_section_text_color', true);
+
+// Prepare the background color value
 $background_color_value = isset($brand_colors[$testimonial_background_color]) ? $brand_colors[$testimonial_background_color] : '#FFFFFF';
+$text_color_value = isset($brand_colors[$testimonial_text_color]) ? $brand_colors[$testimonial_text_color] : '#000000';
 ?>
 
 <!-- Testimonial Area -->
 <section class="testimonial-section" style="background-color: <?php echo esc_attr($background_color_value); ?>;">
-    <h2>Read all these fokken Testimonials</h2>
-    <p>You're welcome! If you have any more sections or queries that need optimization, feel free to share them</p>
+    <h2 style="color: <?php echo esc_attr($text_color_value); ?>;">Read all these fokken Testimonials</h2>
+    <p style="color: <?php echo esc_attr($text_color_value); ?>;">You're welcome! If you have any more sections or queries that need optimization, feel free to share them</p>
     <div class="testimonial-group">
         <div class="testimonial-group-instance">
             <p class="testimonial-group-instance-copy">“Andries used his wealth of experience and understanding of how humans learn best to foster a culture of growth in the Web Operations team that he led during my time at 2U. Always being keen to innovate and push the boundaries of what is possible made Andries a key component of a very successful team - he would be an absolute asset to any brand looking to drive hyper growth in the digital space.”</p>
