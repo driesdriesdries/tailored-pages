@@ -1,0 +1,1475 @@
+[
+    {
+        "key": "group_664b1eb0b58d3",
+        "title": "TP | All Page Fields",
+        "fields": [
+            {
+                "key": "field_664b1eb03bca8",
+                "label": "Associated Brand",
+                "name": "associated_brand",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "brand"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing-page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "brochure"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "listing-page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_664b1bc0f36db",
+        "title": "TP | Brand Fields",
+        "fields": [
+            {
+                "key": "field_664b432ef0922",
+                "label": "Logos",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_664b1bc1bff6c",
+                "label": "Brand Logo",
+                "name": "brand_logo",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_664b42e596846",
+                "label": "Colors",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_664b3f3e7f19d",
+                "label": "Primary Color",
+                "name": "primary_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 0,
+                "return_format": "string"
+            },
+            {
+                "key": "field_664b3fc77f19e",
+                "label": "Secondary Color",
+                "name": "secondary_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 0,
+                "return_format": "string"
+            },
+            {
+                "key": "field_664b3fd77f19f",
+                "label": "Tertiary Color",
+                "name": "tertiary_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 0,
+                "return_format": "string"
+            },
+            {
+                "key": "field_664b3fe27f1a0",
+                "label": "Quaternary Color",
+                "name": "quaternary_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 0,
+                "return_format": "string"
+            },
+            {
+                "key": "field_664b40017f1a1",
+                "label": "Quinary Color",
+                "name": "quinary_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 0,
+                "return_format": "string"
+            },
+            {
+                "key": "field_6655e47fe45b4",
+                "label": "Google Fonts Script Url",
+                "name": "google_fonts_script_url",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6655e4f7e45b5",
+                "label": "Font Family Name",
+                "name": "font_family_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "brand"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_664c60e183166",
+        "title": "TP Landing Page 1",
+        "fields": [
+            {
+                "key": "field_665c6da4870d1",
+                "label": "Hero Section",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_665c6dbe870d2",
+                "label": "Hero Section Background Image",
+                "name": "hero_section_background_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_666979e96bbb7",
+                "label": "Testimonial Section",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_66697a62be49a",
+                "label": "Testimonial Section Background Color",
+                "name": "testimonial_section_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66697acbc4a81",
+                "label": "Testimonial section text color",
+                "name": "testimonial_section_text_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66697cca2bf93",
+                "label": "Testimonial Instance Background Color",
+                "name": "testimonial_instance_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66697cde2bf94",
+                "label": "Testimonial Instance Text Color",
+                "name": "testimonial_instance_text_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66697cf32bf95",
+                "label": "Testimonial Instance Accent Color",
+                "name": "testimonial_instance_accent_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66697b9a7eee4",
+                "label": "Testimonial Instances",
+                "name": "testimonial_instances",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Add Row",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_66697d240ec6a",
+                        "label": "Testimonial Instance Copy",
+                        "name": "testimonial_instance_copy",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "rows": "",
+                        "placeholder": "",
+                        "new_lines": "",
+                        "parent_repeater": "field_66697b9a7eee4"
+                    },
+                    {
+                        "key": "field_66697d450ec6b",
+                        "label": "Testimonial Instance Portrait Image",
+                        "name": "testimonial_instance_portrait_image",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "medium",
+                        "parent_repeater": "field_66697b9a7eee4"
+                    },
+                    {
+                        "key": "field_66697d600ec6c",
+                        "label": "Testimonial Instance Name",
+                        "name": "testimonial_instance_name",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_66697b9a7eee4"
+                    },
+                    {
+                        "key": "field_66697d8f0ec6d",
+                        "label": "Testimonial Instance Title",
+                        "name": "testimonial_instance_title",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_66697b9a7eee4"
+                    },
+                    {
+                        "key": "field_66697d9e0ec6e",
+                        "label": "Testimonial Instance Logo",
+                        "name": "testimonial_instance_logo",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "medium",
+                        "parent_repeater": "field_66697b9a7eee4"
+                    }
+                ]
+            },
+            {
+                "key": "field_665747e91dbb1",
+                "label": "FAQ Section",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_665750fddf907",
+                "label": "Enable FAQ Section",
+                "name": "enable_faq_section",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Tick to enable this section",
+                "default_value": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_6658962734cbc",
+                "label": "Accordion Headings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_faq_section_accordion_heading_background_color",
+                "label": "Accordion Heading Background Color",
+                "name": "faq_section_accordion_heading_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_heading_copy_color",
+                "label": "Accordion Heading Copy Color",
+                "name": "faq_section_accordion_heading_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66589676c99aa",
+                "label": "Accordion Body",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_faq_section_accordion_body_copy_color",
+                "label": "Accordion Body Copy Color",
+                "name": "faq_section_accordion_body_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_body_background_color",
+                "label": "Accordion Body Background Color",
+                "name": "faq_section_accordion_body_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66574bf1eb724",
+                "label": "Section Settings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_faq_section_background_color",
+                "label": "FAQ Section Background Color",
+                "name": "faq_section_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_copy_color",
+                "label": "FAQ Section Copy Color",
+                "name": "faq_section_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_faq_section_accordion_accent_color",
+                "label": "Accordion Accent Color",
+                "name": "faq_section_accordion_accent_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_66574c01eb725",
+                "label": "Content",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_66574cac466a6",
+                "label": "faq_section_heading",
+                "name": "faq_section_heading",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Description Goes Here",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66574ced466a7",
+                "label": "faq_section_description",
+                "name": "faq_section_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Description Goes Here",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_faq_section_repeater",
+                "label": "FAQ Items",
+                "name": "faq_section_repeater",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "Add FAQ Item",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_faq_section_repeater_heading",
+                        "label": "FAQ Heading",
+                        "name": "faq_section_repeater_heading",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_faq_section_repeater"
+                    },
+                    {
+                        "key": "field_faq_section_repeater_body",
+                        "label": "FAQ Body",
+                        "name": "faq_section_repeater_body",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": "",
+                        "new_lines": "",
+                        "readonly": 0,
+                        "disabled": 0,
+                        "parent_repeater": "field_faq_section_repeater"
+                    }
+                ]
+            },
+            {
+                "key": "field_664c60e1e4748",
+                "label": "CTA Section",
+                "name": "",
+                "aria-label": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_664c6abee8751",
+                "label": "Enable CTA Section",
+                "name": "enable_cta_section",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Tick to enable this section",
+                "default_value": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_6655dc53e2bf0",
+                "label": "Section Settings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_664c778d3d4be",
+                "label": "CTA Section Background Color",
+                "name": "cta_section_bg_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6651ecc3e0757",
+                "label": "CTA Section Copy Color",
+                "name": "cta_section_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_664c61cb2a25d",
+                "label": "CTA Section Heading",
+                "name": "cta_section_heading",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Heading Goes Here",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_664c635a2fea8",
+                "label": "CTA Section Description",
+                "name": "cta_section_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Description Goes Here",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6655dc82e2bf1",
+                "label": "Button Settings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_6655d86d6aa9b",
+                "label": "CTA Section Button Background Color",
+                "name": "cta_section_button_background_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6655d88c6aa9c",
+                "label": "CTA Section Button Copy Color",
+                "name": "cta_section_button_copy_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary_color": "primary_color",
+                    "secondary_color": "secondary_color",
+                    "tertiary_color": "tertiary_color",
+                    "quaternary_color": "quaternary_color",
+                    "quinary_color": "quinary_color"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6655d8a16aa9d",
+                "label": "CTA Section Button Copy",
+                "name": "cta_section_button_copy",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Find out more",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6655dd8898e57",
+                "label": "CTA Section Button Link",
+                "name": "cta_section_button_link",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6655dea4f563c",
+                "label": "CTA Section Button Link New Tab",
+                "name": "cta_section_button_link_new_tab",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Open link in a new tab?",
+                "default_value": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing-page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_6659a1c391a16",
+        "title": "TP Listing Page 1",
+        "fields": [
+            {
+                "key": "field_6659a1c39636d",
+                "label": "Product Selection",
+                "name": "product_selection",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "landing-page"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "listing-page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_665b20cc6e126",
+        "title": "TP Success Page 1",
+        "fields": [
+            {
+                "key": "field_665b20cc5bfea",
+                "label": "Landing Page Source",
+                "name": "landing_page_source",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "landing-page"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "success-page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]
