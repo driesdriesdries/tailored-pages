@@ -76,10 +76,5 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
     $queries_for_section_list = array_slice($queries_after_list, $queries_before);
     ?>
     <h5><?php echo $queries_for_section; ?> DB Queries for Testimonial Section</h5>
-    <ul>
-        <?php foreach ($queries_for_section_list as $query) : ?>
-            <li><?php echo esc_html($query[0]); ?></li>
-        <?php endforeach; ?>
-    </ul>
 </section>
 <?php endif; ?>
