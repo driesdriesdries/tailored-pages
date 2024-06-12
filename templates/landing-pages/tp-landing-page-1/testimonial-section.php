@@ -6,10 +6,11 @@ $queries_before_list = $wpdb->queries;
 
 // Get the testimonial section background color
 $testimonial_background_color = get_field('testimonial_section_background_color');
+$background_color_value = isset($brand_colors[$testimonial_background_color]) ? $brand_colors[$testimonial_background_color] : '#FFFFFF';
 ?>
 
 <!-- Testimonial Area -->
-<section class="testimonial-section" style="background-color: <?php echo esc_attr($testimonial_background_color); ?>;">
+<section class="testimonial-section" style="background-color: <?php echo esc_attr($background_color_value); ?>;">
     <h2>Read all these fokken Testimonials</h2>
     <p>You're welcome! If you have any more sections or queries that need optimization, feel free to share them</p>
     <div class="testimonial-group">
@@ -48,7 +49,9 @@ $testimonial_background_color = get_field('testimonial_section_background_color'
     $queries_for_section_list = array_slice($queries_after_list, $queries_before);
     ?>
     <h5><?php echo $queries_for_section; ?> DB Queries for Testimonial Section</h5>
-    <?php foreach ($queries_for_section_list as $query) : ?>
-        <h6><?php echo esc_html($query[0]); ?></h6>
-    <?php endforeach; ?>
+    <ul>
+        <?php foreach ($queries_for_section_list as $query) : ?>
+            <li><?php echo esc_html($query[0]); ?></li>
+        <?php endforeach; ?>
+    </ul>
 </section>
