@@ -1,56 +1,8 @@
 @import "abstracts/mixins";
+@import "abstracts/base";
+@import "components/buttons";
 
-body {
-    font-size: 10px; // base font size
-}
-.primary-button {
-    display: inline-block;
-    padding: 2.5rem 5rem;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: transform 0.2s, box-shadow 0.2s;
-    &:hover {
-        opacity: 0.9;
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-}
-#primary {
-    h1 {
-        font-size: 4rem;
-    }
-    
-    h2 {
-        font-size: 3rem;
-    }
-    
-    h3 {
-        font-size: 2rem;
-    }
-    
-    h4 {
-        font-size: 1.75rem;
-    }
-    
-    h5 {
-        font-size: 1.5rem;
-    }
-    
-    h6 {
-        font-size: 1.25rem;
-    }
-    
-    p {
-        font-size: 1.6rem;
-    }
-    
-    small {
-        font-size: 0.875rem;
-    }
-    a {
-        font-size: 1.6rem;
-    }
-}
+
 .tp-landing-page1 {
     @include container;
     @include fade-in(.5s, 0.5s); // Fades in over .5 seconds with a 0.5-second delay
