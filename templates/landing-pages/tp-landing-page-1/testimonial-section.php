@@ -45,21 +45,24 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
         <?php echo apply_filters('the_content', wp_kses_post($testimonial_section_heading_content)); ?>
     </div>
     <div class="testimonial-group">
-        <div class="testimonial-group-instance" style="background-color: <?php echo esc_attr($instance_background_color_value); ?> !important; border-top: 5px solid <?php echo esc_attr($instance_accent_color_value); ?> !important;">
-            <p class="testimonial-group-instance-copy" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">“Andries used his wealth of experience and understanding of how humans learn best to foster a culture of growth in the Web Operations team that he led during my time at 2U. Always being keen to innovate and push the boundaries of what is possible made Andries a key component of a very successful team - he would be an absolute asset to any brand looking to drive hyper growth in the digital space.”</p>
-            <img src="https://i.kym-cdn.com/entries/icons/facebook/000/045/146/son-goku-thumb-up.jpg" alt="#" class="testimonial-group-instance-portrait">
-            <p class="testimonial-group-instance-name" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">Andries Bester</p>
-            <p class="testimonial-group-instance-title" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">Loser of Note</p>
-            <img src="https://i.kym-cdn.com/entries/icons/facebook/000/045/146/son-goku-thumb-up.jpg" alt="" class="testimonial-group-instance-logo">
-        </div>
-
-        <div class="testimonial-group-instance" style="background-color: <?php echo esc_attr($instance_background_color_value); ?> !important; border-top: 5px solid <?php echo esc_attr($instance_accent_color_value); ?> !important;">
-            <p class="testimonial-group-instance-copy" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">“Andries used his wealth of experience and understanding of how humans learn best to foster a culture of growth in the Web Operations team that he led during my time at 2U. Always being keen to innovate and push the boundaries of what is possible made Andries a key component of a very successful team - he would be an absolute asset to any brand looking to drive hyper growth in the digital space.”</p>
-            <img src="https://i.kym-cdn.com/entries/icons/facebook/000/045/146/son-goku-thumb-up.jpg" alt="#" class="testimonial-group-instance-portrait">
-            <p class="testimonial-group-instance-name" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">Andries Bester</p>
-            <p class="testimonial-group-instance-title" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">Loser of Note</p>
-            <img src="https://i.kym-cdn.com/entries/icons/facebook/000/045/146/son-goku-thumb-up.jpg" alt="" class="testimonial-group-instance-logo">
-        </div>
+        <?php if (have_rows('testimonial_instances')) : ?>
+            <?php while (have_rows('testimonial_instances')) : the_row(); ?>
+                <div class="testimonial-group-instance" style="background-color: <?php echo esc_attr($instance_background_color_value); ?> !important; border-top: 5px solid <?php echo esc_attr($instance_accent_color_value); ?> !important;">
+                    <p class="testimonial-group-instance-copy" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">
+                        <?php echo esc_html(get_sub_field('testimonial_instance_copy')); ?>
+                    </p>
+                    <?php if ($portrait_image_url = get_sub_field('testimonial_instance_portrait_image')) : ?>
+                        <img src="<?php echo esc_url($portrait_image_url); ?>" alt="Portrait Image" class="testimonial-group-instance-portrait">
+                    <?php endif; ?>
+                    <p class="testimonial-group-instance-name" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">
+                        <?php echo esc_html(get_sub_field('testimonial_instance_name')); ?>
+                    </p>
+                    <p class="testimonial-group-instance-title" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">
+                        <?php echo esc_html(get_sub_field('testimonial_instance_title')); ?>
+                    </p>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </div>
     <?php
     // Get the number of queries after rendering the section
