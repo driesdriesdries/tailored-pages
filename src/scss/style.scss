@@ -1,3 +1,5 @@
+@import "abstracts/mixins";
+
 body {
     font-size: 10px; // base font size
 }
@@ -49,23 +51,6 @@ body {
         font-size: 1.6rem;
     }
 }
-
-@mixin container {
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-}
-@mixin fade-in($duration: 1s, $delay: 0s) {
-    opacity: 0;
-    animation: fadeIn $duration $delay forwards;
-  }
-  
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
 .tp-landing-page1 {
     @include container;
     @include fade-in(.5s, 0.5s); // Fades in over .5 seconds with a 0.5-second delay

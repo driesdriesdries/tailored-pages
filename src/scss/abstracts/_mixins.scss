@@ -1,0 +1,15 @@
+@mixin container {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+@mixin fade-in($duration: 1s, $delay: 0s) {
+    opacity: 0;
+    animation: fadeIn $duration $delay forwards;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
