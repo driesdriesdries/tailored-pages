@@ -85,4 +85,25 @@ document.addEventListener('DOMContentLoaded', function() {
             updateColorPreview(colorField, colorPreview); // Initial call
         }
     });
+
+    // Testimonial Section fields
+    const testimonialFields = [
+        '66697a62be49a', // Testimonial Section Background Color
+        '66697acbc4a81', // Testimonial Section Text Color
+        '66697cca2bf93', // Testimonial Instance Background Color
+        '66697cde2bf94', // Testimonial Instance Text Color
+        '66697cf32bf95'  // Testimonial Instance Accent Color
+    ];
+
+    testimonialFields.forEach(function(fieldId) {
+        const fieldSelector = `select[name="acf[field_${fieldId}]"]`;
+        const colorField = document.querySelector(fieldSelector);
+        if (colorField) {
+            const colorPreview = createColorPreview(colorField);
+            colorField.addEventListener('change', function() {
+                updateColorPreview(colorField, colorPreview);
+            });
+            updateColorPreview(colorField, colorPreview); // Initial call
+        }
+    });
 });
