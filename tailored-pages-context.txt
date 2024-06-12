@@ -27,6 +27,7 @@ Plugin Structure:
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/js/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/js/accordion.js
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/js/custom-admin.js
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/js/form-validation.js
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/package-lock.json
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/package.json
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/readme.md
@@ -595,7 +596,30 @@ add_action('manage_landing-page_posts_custom_column', 'tp_custom_landing_page_co
 
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/includes/form-handler.php
 
-<?php 
+<?php
+
+function tp_enqueue_form_validation_script() {
+    // Adjust the path as per your directory structure
+    $file_path = plugin_dir_path(__FILE__) . '../js/form-validation.js';
+    $file_url = plugins_url('../js/form-validation.js', __FILE__);
+
+    error_log('Resolved file path: ' . $file_path); // Add this line for debugging
+
+    if (file_exists($file_path)) {
+        wp_enqueue_script(
+            'tp-form-validation-js',
+            $file_url,
+            array('jquery'),
+            filemtime($file_path), // Use filemtime to set version
+            true
+        );
+    } else {
+        error_log('Form validation script file does not exist: ' . $file_path);
+    }
+}
+add_action('wp_enqueue_scripts', 'tp_enqueue_form_validation_script');
+
+
 function tp_handle_form_submission() {
     if (isset($_POST['action']) && $_POST['action'] === 'submit_landing_page_form') {
         global $wpdb;
@@ -604,9 +628,17 @@ function tp_handle_form_submission() {
         $first_name = sanitize_text_field($_POST['first_name']);
         $last_name = sanitize_text_field($_POST['last_name']);
         $email_address = sanitize_email($_POST['email_address']);
-        $marketing_consent = isset($_POST['marketing_consent']) ? 1 : 0;
+        $marketing_consent = isset($_POST['marketing_consent']) && $_POST['marketing_consent'] === 'yes' ? 'yes' : 'no';
         $time = current_time('mysql');
         $landing_page_id = intval($_POST['landing_page_id']);
+        $associated_brand_id = sanitize_text_field($_POST['associated_brand']);
+        $associated_product_title = sanitize_text_field($_POST['associated_product']);
+
+        // Log the form input for debugging
+        error_log("Form Input: first_name=$first_name, last_name=$last_name, email_address=$email_address, marketing_consent=$marketing_consent, landing_page_id=$landing_page_id, associated_brand_id=$associated_brand_id, associated_product_title=$associated_product_title");
+
+        // Retrieve brand name
+        $associated_brand_name = get_the_title($associated_brand_id);
 
         // Insert data into custom table
         $table_name = $wpdb->prefix . 'tp_leads';
@@ -618,8 +650,17 @@ function tp_handle_form_submission() {
                 'last_name' => $last_name,
                 'email_address' => $email_address,
                 'marketing_consent' => $marketing_consent,
+                'associated_brand' => $associated_brand_name,
+                'associated_product' => $associated_product_title,
             )
         );
+
+        // Log the result of the insert operation for debugging
+        if ($wpdb->last_error) {
+            error_log("Database Insert Error: " . $wpdb->last_error);
+        } else {
+            error_log("Data Inserted Successfully");
+        }
 
         // Check if there's a cached success page URL
         $cache_key = 'success_page_' . $landing_page_id;
@@ -649,6 +690,9 @@ function tp_handle_form_submission() {
             }
         }
 
+        // Log the redirection URL for debugging
+        error_log("Redirecting to: $success_page_url");
+
         // Redirect after processing
         wp_redirect($success_page_url);
         exit;
@@ -656,6 +700,7 @@ function tp_handle_form_submission() {
 }
 add_action('admin_post_nopriv_submit_landing_page_form', 'tp_handle_form_submission');
 add_action('admin_post_submit_landing_page_form', 'tp_handle_form_submission');
+
 
 // Custom table creation function
 function tp_create_custom_table() {
@@ -669,7 +714,9 @@ function tp_create_custom_table() {
         first_name tinytext NOT NULL,
         last_name tinytext NOT NULL,
         email_address varchar(100) NOT NULL,
-        marketing_consent boolean DEFAULT false NOT NULL,
+        marketing_consent varchar(3) DEFAULT 'no' NOT NULL,
+        associated_brand tinytext NOT NULL,
+        associated_product tinytext NOT NULL,
         PRIMARY KEY  (id)
     ) $charset_collate;";
 
