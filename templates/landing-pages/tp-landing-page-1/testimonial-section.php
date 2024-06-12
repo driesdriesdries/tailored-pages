@@ -15,6 +15,9 @@ $testimonial_instance_accent_color = get_post_meta($post_id, 'testimonial_instan
 // Get the testimonial section heading content from the WYSIWYG field
 $testimonial_section_heading_content = get_post_meta($post_id, 'testimonial_section_heading_content', true);
 
+// Get the value of the "Enable Testimonial Section" field
+$enable_testimonial_section = get_post_meta($post_id, 'enable_testimonial_section', true);
+
 // Prepare the color values
 $background_color_value = isset($brand_colors[$testimonial_background_color]) ? $brand_colors[$testimonial_background_color] : '#FFFFFF';
 $text_color_value = isset($brand_colors[$testimonial_text_color]) ? $brand_colors[$testimonial_text_color] : '#000000';
@@ -23,10 +26,18 @@ $instance_text_color_value = isset($brand_colors[$testimonial_instance_text_colo
 $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_color]) ? $brand_colors[$testimonial_instance_accent_color] : '#FF0000';
 ?>
 
+<?php if ($enable_testimonial_section) : ?>
 <!-- Testimonial Area -->
 <section class="testimonial-section" style="background-color: <?php echo esc_attr($background_color_value); ?> !important;">
     <style>
-        .testimonial-section .testimonial-heading, .testimonial-section .testimonial-heading p {
+        .testimonial-section .testimonial-heading,
+        .testimonial-section .testimonial-heading p,
+        .testimonial-section .testimonial-heading h1,
+        .testimonial-section .testimonial-heading h2,
+        .testimonial-section .testimonial-heading h3,
+        .testimonial-section .testimonial-heading h4,
+        .testimonial-section .testimonial-heading h5,
+        .testimonial-section .testimonial-heading h6 {
             color: <?php echo esc_attr($text_color_value); ?> !important;
         }
     </style>
@@ -49,7 +60,6 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
             <p class="testimonial-group-instance-title" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">Loser of Note</p>
             <img src="https://i.kym-cdn.com/entries/icons/facebook/000/045/146/son-goku-thumb-up.jpg" alt="" class="testimonial-group-instance-logo">
         </div>
-        
     </div>
     <?php
     // Get the number of queries after rendering the section
@@ -69,3 +79,4 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
         <?php endforeach; ?>
     </ul>
 </section>
+<?php endif; ?>
