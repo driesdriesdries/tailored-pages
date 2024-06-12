@@ -106,4 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
             updateColorPreview(colorField, colorPreview); // Initial call
         }
     });
+
+    // Add custom styles for ACF accordion headings
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .acf-field.acf-field-accordion .acf-label.acf-accordion-title {
+            background-color: crimson !important;
+            color: white !important;
+        }
+    `;
+    document.head.appendChild(style);
 });
