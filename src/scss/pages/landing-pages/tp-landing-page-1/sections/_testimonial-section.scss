@@ -1,3 +1,48 @@
 .testimonial-section {
-    background-color: yellow;
+    text-align: center;
+    @include section-vertical-padding;
+    background-color: beige;
+
+    .testimonial-group {
+        display: flex;
+        justify-content: space-around;
+
+        &-instance {
+            @include border-radius-light;
+            border-top: 5px solid cyan;
+            background-color: tomato;
+            width: 29%;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+
+            &:hover {
+                opacity: 0.9;
+                transform: translateY(-3px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            &-copy {
+                color: rebeccapurple;
+                font-style: italic;
+            }
+            &-portrait {
+                width: 7rem;
+                height: 7rem;
+                border-radius: 100%;
+            }
+            &-name {
+                background-color: teal;
+                font-weight: bold;
+                margin-top: 1rem;
+                margin-bottom: 0;
+            }
+            &-title {
+                background-color: yellow;
+                margin-bottom: 0;
+            }
+            &-logo {
+                width: 10rem;
+            }
+        }
+    }
 }

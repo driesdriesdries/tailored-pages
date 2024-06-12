@@ -8,6 +8,9 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+@mixin border-radius-light {
+  border-radius: 1rem;
+}
 @mixin fade-in($duration: 1s, $delay: 0s) {
     opacity: 0;
     animation: fadeIn $duration $delay forwards;
