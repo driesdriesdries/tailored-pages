@@ -108,16 +108,6 @@ if ($associated_brand_id) {
             <h1>Newsletter signup form</h1>
         </section>
 
-        <!-- Contact Information Section -->
-        <section class="contact-section">
-            <h1>Contact information content</h1>
-        </section>
-
-        <!-- Social Proof Section -->
-        <section class="social-proof-section">
-            <h1>Additional social proof</h1>
-        </section>
-
         <!-- Footer -->
         <section class="footer-section">
             <h1>Footer content</h1>

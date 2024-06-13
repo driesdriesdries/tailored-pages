@@ -6,7 +6,7 @@ Plugin Structure:
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/.gitignore
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/acf-fields/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/acf-fields/.DS_Store
-/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/acf-fields/tailored-pages-fields.json
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/acf-fields/acf-export-2024-06-12.json
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/dist/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/dist/css/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/dist/css/abstracts/
@@ -36,6 +36,10 @@ Plugin Structure:
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/.DS_Store
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/abstracts/
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/abstracts/_base.scss
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/abstracts/_mixins.scss
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/components/
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/components/_buttons.scss
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/pages/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/pages/.DS_Store
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/src/scss/pages/landing-pages/
@@ -62,6 +66,7 @@ Plugin Structure:
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/landing-pages/tp-landing-page-1/faq-section.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/landing-pages/tp-landing-page-1/hero-section.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/landing-pages/tp-landing-page-1/navbar-section.php
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/landing-pages/tp-landing-page-1/testimonial-section.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/landing-pages/tp-landing-page-1.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/listing-pages/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/templates/listing-pages/tp-listing-page-1.php
@@ -619,7 +624,6 @@ function tp_enqueue_form_validation_script() {
 }
 add_action('wp_enqueue_scripts', 'tp_enqueue_form_validation_script');
 
-
 function tp_handle_form_submission() {
     if (isset($_POST['action']) && $_POST['action'] === 'submit_landing_page_form') {
         global $wpdb;
@@ -634,11 +638,20 @@ function tp_handle_form_submission() {
         $associated_brand_id = sanitize_text_field($_POST['associated_brand']);
         $associated_product_title = sanitize_text_field($_POST['associated_product']);
 
+        // Unserialize the associated brand ID if necessary
+        $associated_brand_id = maybe_unserialize($associated_brand_id);
+
+        // If associated brand is an array, get the first element
+        if (is_array($associated_brand_id)) {
+            $associated_brand_id = $associated_brand_id[0];
+        }
+
         // Log the form input for debugging
         error_log("Form Input: first_name=$first_name, last_name=$last_name, email_address=$email_address, marketing_consent=$marketing_consent, landing_page_id=$landing_page_id, associated_brand_id=$associated_brand_id, associated_product_title=$associated_product_title");
 
         // Retrieve brand name
         $associated_brand_name = get_the_title($associated_brand_id);
+        error_log("Associated Brand Name: $associated_brand_name");
 
         // Insert data into custom table
         $table_name = $wpdb->prefix . 'tp_leads';
@@ -700,6 +713,7 @@ function tp_handle_form_submission() {
 }
 add_action('admin_post_nopriv_submit_landing_page_form', 'tp_handle_form_submission');
 add_action('admin_post_submit_landing_page_form', 'tp_handle_form_submission');
+
 
 
 // Custom table creation function

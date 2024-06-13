@@ -21,7 +21,6 @@ function tp_enqueue_form_validation_script() {
 }
 add_action('wp_enqueue_scripts', 'tp_enqueue_form_validation_script');
 
-
 function tp_handle_form_submission() {
     if (isset($_POST['action']) && $_POST['action'] === 'submit_landing_page_form') {
         global $wpdb;
@@ -36,11 +35,20 @@ function tp_handle_form_submission() {
         $associated_brand_id = sanitize_text_field($_POST['associated_brand']);
         $associated_product_title = sanitize_text_field($_POST['associated_product']);
 
+        // Unserialize the associated brand ID if necessary
+        $associated_brand_id = maybe_unserialize($associated_brand_id);
+
+        // If associated brand is an array, get the first element
+        if (is_array($associated_brand_id)) {
+            $associated_brand_id = $associated_brand_id[0];
+        }
+
         // Log the form input for debugging
         error_log("Form Input: first_name=$first_name, last_name=$last_name, email_address=$email_address, marketing_consent=$marketing_consent, landing_page_id=$landing_page_id, associated_brand_id=$associated_brand_id, associated_product_title=$associated_product_title");
 
         // Retrieve brand name
         $associated_brand_name = get_the_title($associated_brand_id);
+        error_log("Associated Brand Name: $associated_brand_name");
 
         // Insert data into custom table
         $table_name = $wpdb->prefix . 'tp_leads';
@@ -102,6 +110,7 @@ function tp_handle_form_submission() {
 }
 add_action('admin_post_nopriv_submit_landing_page_form', 'tp_handle_form_submission');
 add_action('admin_post_submit_landing_page_form', 'tp_handle_form_submission');
+
 
 
 // Custom table creation function

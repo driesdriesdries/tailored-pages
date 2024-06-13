@@ -1,4 +1,3 @@
-<!-- Hero Section -->
 <?php
 // Capture the initial number of queries
 $initial_hero_queries = get_num_queries();
@@ -9,7 +8,7 @@ $post_meta = get_post_meta(get_the_ID());
 // Extract the necessary meta values
 $background_image_id = isset($post_meta['hero_section_background_image'][0]) ? $post_meta['hero_section_background_image'][0] : '';
 $background_image_url = $background_image_id ? wp_get_attachment_image_url($background_image_id, 'hero-background') : 'https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006-e1697471244240.jpg';
-$associated_brand_ids = isset($post_meta['associated_brand'][0]) ? $post_meta['associated_brand'][0] : '';
+$associated_brand_ids = isset($post_meta['associated_brand'][0]) ? maybe_unserialize($post_meta['associated_brand'][0]) : '';
 $associated_brand_id = is_array($associated_brand_ids) && !empty($associated_brand_ids) ? $associated_brand_ids[0] : $associated_brand_ids;
 
 // Use the current post title as the associated product
@@ -40,6 +39,9 @@ if ($associated_brand_id) {
         $brand_logo_alt = get_post_meta($brand_logo_id, '_wp_attachment_image_alt', true);
     }
 }
+
+// Log associated brand ID for debugging
+error_log("Associated Brand ID in Template: $associated_brand_id");
 
 // Capture the number of queries after retrieving the hero section data
 $final_hero_queries = get_num_queries();
@@ -79,6 +81,11 @@ $hero_section_queries = $final_hero_queries - $initial_hero_queries;
                 <input type="hidden" name="landing_page_id" value="<?php echo get_the_ID(); ?>">
                 <input type="hidden" name="associated_brand" value="<?php echo esc_attr($associated_brand_id); ?>">
                 <input type="hidden" name="associated_product" value="<?php echo esc_attr($associated_product_title); ?>">
+
+                <?php
+                    error_log("Form Hidden Fields: landing_page_id=" . get_the_ID() . ", associated_brand=" . esc_attr($associated_brand_id) . ", associated_product=" . esc_attr($associated_product_title));
+                ?>
+
                 <button type="submit">Submit</button>
             </form>
         </div>
