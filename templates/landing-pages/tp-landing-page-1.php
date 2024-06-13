@@ -55,16 +55,6 @@ if ($associated_brand_id) {
         include_template_part('hero-section', $hero_variables);
         ?>
 
-        <!-- Unique Selling Points -->
-        <section class="usp-section">
-            <h1>Unique selling points content</h1>
-        </section>
-
-        <!-- Features/Benefits -->
-        <section class="features-section">
-            <h1>Features and benefits content</h1>
-        </section>
-
         <!-- Testimonial Section -->
         <?php
         $testimonial_variables = compact('brand_colors');
@@ -77,16 +67,26 @@ if ($associated_brand_id) {
         include_template_part('cta-section', $cta_variables);
         ?>
 
-        <!-- Case Studies/Success Stories -->
-        <section class="case-studies-section">
-            <h1>Case studies content</h1>
-        </section>
-
         <!-- FAQ Section -->
         <?php
         $faq_variables = compact('brand_colors');
         include_template_part('faq-section', $faq_variables);
         ?>
+
+        <!-- Case Studies/Success Stories -->
+        <section class="case-studies-section">
+            <h1>Case studies content</h1>
+        </section>
+
+        <!-- Unique Selling Points -->
+        <section class="usp-section">
+            <h1>Unique selling points content</h1>
+        </section>
+
+        <!-- Features/Benefits -->
+        <section class="features-section">
+            <h1>Features and benefits content</h1>
+        </section>
 
         <!-- Video Section -->
         <section class="video-section">
