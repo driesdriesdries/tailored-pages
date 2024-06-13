@@ -83,5 +83,5 @@ $hero_section_queries = $final_hero_queries - $initial_hero_queries;
             </form>
         </div>
     </div>
-    <h5 style="text-align: center;"><?php echo "Hero Section Queries: $hero_section_queries"; ?></h5>
 </section>
+<h5 style="text-align: center;"><?php echo "Hero Section Queries: $hero_section_queries"; ?></h5>
