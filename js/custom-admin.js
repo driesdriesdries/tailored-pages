@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.innerHTML = `
         .acf-field.acf-field-accordion .acf-label.acf-accordion-title {
-            background-color: crimson !important;
-            color: white !important;
+            background-color: #f2f2f2 !important;
+            color: crimson !important;
         }
     `;
     document.head.appendChild(style);
