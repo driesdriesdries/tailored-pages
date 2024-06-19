@@ -37,8 +37,26 @@ if ($associated_brand_id) {
         $brand_logo_url = wp_get_attachment_image_url($brand_logo_id, 'medium'); // Use 'medium' size
         $brand_logo_alt = get_post_meta($brand_logo_id, '_wp_attachment_image_alt', true);
     }
+
+    // Retrieve Google Fonts script URL and font family name
+    $google_fonts_script_url = get_post_meta($associated_brand_id, 'google_fonts_script_url', true);
+    $font_family_name = get_post_meta($associated_brand_id, 'font_family_name', true);
 }
 ?>
+
+<!-- FONT TESTING -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="<?php echo $google_fonts_script_url; ?>" rel="stylesheet">
+
+<style>
+    * {
+        <?php 
+            echo $font_family_name;
+        ?>
+    }
+</style>
+<!-- FONT TESTING ENDS -->
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main tp-landing-page1">
