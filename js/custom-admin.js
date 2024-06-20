@@ -107,6 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Add color preview for the new ACF field
+    const newFieldId = 'field_6673d56d0a53e'; // Corrected field name
+    const newFieldSelector = `select[name="acf[${newFieldId}]"]`;
+    const newColorField = document.querySelector(newFieldSelector);
+    if (newColorField) {
+        const newColorPreview = createColorPreview(newColorField);
+        newColorField.addEventListener('change', function() {
+            updateColorPreview(newColorField, newColorPreview);
+        });
+        updateColorPreview(newColorField, newColorPreview); // Initial call
+    }
+
+
     // Add custom styles for ACF accordion headings
     const style = document.createElement('style');
     style.innerHTML = `
