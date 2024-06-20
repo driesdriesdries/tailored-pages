@@ -1,5 +1,5 @@
 <?php
-// Add Meta Box for Template Selection and Related Section
+// Add Meta Box for Template Selection
 function tp_add_meta_boxes() {
     $screens = ['success-page', 'landing-page', 'listing-page', 'brand'];
     foreach ($screens as $screen) {
@@ -7,13 +7,6 @@ function tp_add_meta_boxes() {
             'tp_template_selection',
             'Template Selection',
             'tp_template_meta_box_callback',
-            $screen,
-            'side'
-        );
-        add_meta_box(
-            'tp_related_section',
-            'Related',
-            'tp_related_meta_box_callback',
             $screen,
             'side'
         );
@@ -58,13 +51,6 @@ function tp_save_template_meta_box($post_id) {
     }
 }
 add_action('save_post', 'tp_save_template_meta_box');
-
-// Callback for Related Section Meta Box
-function tp_related_meta_box_callback($post) {
-    ?>
-    <h2>Related</h2>
-    <?php
-}
 
 // Remove Featured Image meta box from specific post types
 function tp_remove_featured_image_meta_box() {
