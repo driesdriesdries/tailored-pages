@@ -43,6 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
         colorPreview.style.backgroundColor = color;
     }
 
+    // Add color preview for the Navbar Section Background Color field
+    const navbarFieldId = 'field_6673d56d0a53e';
+    const navbarFieldSelector = `select[name="acf[${navbarFieldId}]"]`;
+    const navbarColorField = document.querySelector(navbarFieldSelector);
+    if (navbarColorField) {
+        const navbarColorPreview = createColorPreview(navbarColorField);
+        navbarColorField.addEventListener('change', function() {
+            updateColorPreview(navbarColorField, navbarColorPreview);
+        });
+        updateColorPreview(navbarColorField, navbarColorPreview); // Initial call
+    }
+    
     // Fields to add color previews
     const fields = [
         'faq_section_background_color',
@@ -107,13 +119,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add custom styles for ACF accordion headings
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .acf-field.acf-field-accordion .acf-label.acf-accordion-title {
-            background-color: #f2f2f2 !important;
-            color: crimson !important;
-        }
-    `;
-    document.head.appendChild(style);
 });
