@@ -52,7 +52,7 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
                         <?php echo esc_html(get_sub_field('testimonial_instance_copy')); ?>
                     </p>
                     <?php if ($portrait_image_url = get_sub_field('testimonial_instance_portrait_image')) : ?>
-                        <img src="<?php echo esc_url($portrait_image_url); ?>" alt="Portrait Image" class="testimonial-group-instance-portrait">
+                        <div class="testimonial-group-instance-portrait" style="background-image: url('<?php echo esc_url($portrait_image_url); ?>'); background-size: cover; background-position: center;"></div>
                     <?php endif; ?>
                     <p class="testimonial-group-instance-name" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">
                         <?php echo esc_html(get_sub_field('testimonial_instance_name')); ?>

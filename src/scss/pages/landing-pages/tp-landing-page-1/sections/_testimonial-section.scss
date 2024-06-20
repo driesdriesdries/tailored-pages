@@ -13,11 +13,12 @@
         }
         &-instance {
             @include border-radius-light;
-            border-top: 5px solid cyan;
-            background-color: tomato;
             width: 29%;
             padding: 2rem;
             transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             @media only screen and (max-width:$bp-medium) {
                 width: 50%;
             }
@@ -33,8 +34,8 @@
                 font-style: italic;
             }
             &-portrait {
-                width: 7rem;
-                height: 7rem;
+                width: 12rem;
+                height: 12rem;
                 border-radius: 100%;
             }
             &-name {
