@@ -51,7 +51,13 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
                     <p class="testimonial-group-instance-copy" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">
                         <?php echo esc_html(get_sub_field('testimonial_instance_copy')); ?>
                     </p>
-                    <?php if ($portrait_image_url = get_sub_field('testimonial_instance_portrait_image')) : ?>
+                    <?php 
+                    if ($portrait_image_id = get_sub_field('testimonial_instance_portrait_image')) :
+                        error_log('Portrait Image ID: ' . $portrait_image_id); // Log the image ID
+                        $portrait_image = wp_get_attachment_image_src($portrait_image_id, 'testimonial-portrait');
+                        $portrait_image_url = $portrait_image ? $portrait_image[0] : '';
+                        error_log('Portrait Image URL: ' . $portrait_image_url); // Log the image URL
+                    ?>
                         <div class="testimonial-group-instance-portrait" style="background-image: url('<?php echo esc_url($portrait_image_url); ?>'); background-size: cover; background-position: center;"></div>
                     <?php endif; ?>
                     <p class="testimonial-group-instance-name" style="color: <?php echo esc_attr($instance_text_color_value); ?> !important;">

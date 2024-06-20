@@ -182,6 +182,7 @@ add_action('admin_enqueue_scripts', 'tp_enqueue_admin_scripts');
 add_action('after_setup_theme', 'custom_image_sizes');
 function custom_image_sizes() {
     add_image_size('hero-background', 1920, 1080, true); // Example size, adjust as needed
+    add_image_size('testimonial-portrait', 120, 120, true); // New image size for testimonial portrait
 }
 
 
