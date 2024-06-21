@@ -3,9 +3,6 @@
 $enable_cta_section = get_post_meta(get_the_ID(), 'enable_cta_section', true);
 
 if ($enable_cta_section) {
-    // Get the initial number of queries
-    $initial_queries = get_num_queries();
-
     // Get the CTA section heading and description from post meta
     $cta_section_heading = get_post_meta(get_the_ID(), 'cta_section_heading', true);
     $cta_section_description = get_post_meta(get_the_ID(), 'cta_section_description', true);
@@ -29,7 +26,6 @@ if ($enable_cta_section) {
 
     // Determine target attribute based on the new tab option
     $cta_button_target = !empty($cta_section_button_link_new_tab) ? ' target="_blank"' : '';
-
     ?>
     <section class="cta-section" style="background-color: <?php echo esc_attr($cta_section_bg_color); ?>;">
         <div class="content">
@@ -43,15 +39,6 @@ if ($enable_cta_section) {
                 <a class="primary-button" href="<?php echo esc_url($cta_section_button_link); ?>" style="background-color: <?php echo esc_attr($cta_section_button_bg_color); ?>; color: <?php echo esc_attr($cta_section_button_copy_color); ?>;"<?php echo $cta_button_target; ?>><?php echo esc_html($cta_section_button_copy); ?></a>
             <?php endif; ?>
         </div>
-        <h5 style="text-align: center;">
-            <?php
-            // Get the final number of queries
-            $final_queries = get_num_queries();
-            // Calculate the number of queries the CTA section is responsible for
-            $cta_section_queries = $final_queries - $initial_queries;
-            echo "CTA Section Queries: $cta_section_queries";
-            ?>
-        </h5>
     </section>
     <?php
 }
