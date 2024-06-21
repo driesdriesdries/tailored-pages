@@ -7,7 +7,7 @@ $post_meta = get_post_meta(get_the_ID());
 
 // Extract the necessary meta values
 $background_image_id = isset($post_meta['hero_section_background_image'][0]) ? $post_meta['hero_section_background_image'][0] : '';
-$background_image_url = $background_image_id ? wp_get_attachment_image_url($background_image_id, 'hero-background') : 'https://images.immediate.co.uk/production/volatile/sites/3/2023/03/goku-dragon-ball-guru-824x490-11b2006-e1697471244240.jpg';
+$background_image_url = $background_image_id ? wp_get_attachment_image_url($background_image_id, 'hero-background') : '';
 $associated_brand_ids = isset($post_meta['associated_brand'][0]) ? maybe_unserialize($post_meta['associated_brand'][0]) : '';
 $associated_brand_id = is_array($associated_brand_ids) && !empty($associated_brand_ids) ? $associated_brand_ids[0] : $associated_brand_ids;
 
@@ -48,7 +48,7 @@ $final_hero_queries = get_num_queries();
 $hero_section_queries = $final_hero_queries - $initial_hero_queries;
 ?>
 
-<section class="hero-section" style="background-image: url('<?php echo esc_url($background_image_url); ?>');">
+<section class="hero-section" style="<?php echo $background_image_url ? 'background-image: url(' . esc_url($background_image_url) . ');' : 'background-color: white;'; ?>">
     <div class="hero-content">
         <div class="hero-text">
             <h1>Hero section will go here</h1>
