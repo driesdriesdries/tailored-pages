@@ -21,6 +21,6 @@ $navbar_bg_color = isset($brand_colors[$navbar_bg_color_key]) ? $brand_colors[$n
     $final_queries = get_num_queries();
     // Calculate the number of queries the navbar section is responsible for
     $navbar_section_queries = $final_queries - $initial_queries;
-    echo "Navbar Section Queries: $navbar_section_queries";
+    //echo "Navbar Section Queries: $navbar_section_queries";
     ?>
 </h5>

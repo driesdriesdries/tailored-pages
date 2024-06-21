@@ -62,4 +62,4 @@ $hero_section_queries = $final_hero_queries - $initial_hero_queries;
         </div>
     </div>
 </section>
-<h5 style="text-align: center;"><?php echo "Hero Section Queries: $hero_section_queries"; ?></h5>
+<h5 style="text-align: center;"><?php // echo "Hero Section Queries: $hero_section_queries"; ?></h5>

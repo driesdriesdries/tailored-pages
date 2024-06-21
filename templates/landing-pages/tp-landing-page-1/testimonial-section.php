@@ -1,9 +1,4 @@
 <?php
-// Get the number of queries before rendering the section
-$queries_before = get_num_queries();
-global $wpdb;
-$queries_before_list = $wpdb->queries;
-
 // Get the testimonial section background color, text color, instance background color, instance text color, and instance accent color using get_post_meta
 $post_id = get_the_ID();
 $testimonial_background_color = get_post_meta($post_id, 'testimonial_section_background_color', true);
@@ -70,17 +65,5 @@ $instance_accent_color_value = isset($brand_colors[$testimonial_instance_accent_
             <?php endwhile; ?>
         <?php endif; ?>
     </div>
-    <?php
-    // Get the number of queries after rendering the section
-    $queries_after = get_num_queries();
-    $queries_for_section = $queries_after - $queries_before;
-
-    // Get the list of queries after rendering the section
-    $queries_after_list = $wpdb->queries;
-
-    // Calculate the queries responsible for this section
-    $queries_for_section_list = array_slice($queries_after_list, $queries_before);
-    ?>
-    <h5><?php echo $queries_for_section; ?> DB Queries for Testimonial Section</h5>
 </section>
 <?php endif; ?>

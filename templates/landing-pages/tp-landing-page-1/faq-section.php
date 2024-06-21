@@ -4,9 +4,6 @@
 $enable_faq_section = get_post_meta(get_the_ID(), 'enable_faq_section', true);
 
 if ($enable_faq_section) {
-    // Get the initial number of queries
-    $initial_queries = get_num_queries();
-
     $post_meta = get_post_meta(get_the_ID());
     $faq_section_background_color = $brand_colors[$post_meta['faq_section_background_color'][0]];
     $faq_section_copy_color = $brand_colors[$post_meta['faq_section_copy_color'][0]];
@@ -52,14 +49,5 @@ if ($enable_faq_section) {
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        <h5 style="text-align: center;">
-            <?php
-            // Get the final number of queries
-            $final_queries = get_num_queries();
-            // Calculate the number of queries the FAQ section is responsible for
-            $faq_section_queries = $final_queries - $initial_queries;
-            echo "FAQ Section Queries: $faq_section_queries";
-            ?>
-        </h5>
     </section>
 <?php } ?>
