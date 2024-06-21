@@ -41,22 +41,16 @@ if ($associated_brand_id) {
     // Retrieve Google Fonts script URL and font family name
     $google_fonts_script_url = get_post_meta($associated_brand_id, 'google_fonts_script_url', true);
     $font_family_name = get_post_meta($associated_brand_id, 'font_family_name', true);
+
+    // Include Font Partial
+    $font_partial_path = plugin_dir_path(dirname(__FILE__, 2)) . 'includes/public/font-inclusion.php';
+
+    if (file_exists($font_partial_path)) {
+        include $font_partial_path;
+    }
+
 }
 ?>
-
-<!-- FONT TESTING -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="<?php echo $google_fonts_script_url; ?>" rel="stylesheet">
-
-<style>
-    * {
-        <?php 
-            echo $font_family_name;
-        ?>
-    }
-</style>
-<!-- FONT TESTING ENDS -->
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main tp-landing-page1">

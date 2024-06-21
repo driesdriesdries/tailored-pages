@@ -23,6 +23,7 @@ Plugin Structure:
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/includes/form-handler.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/includes/meta-boxes.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/includes/public/
+/Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/includes/public/font-inclusion.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/includes/public/public-scripts.php
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/js/
 /Applications/MAMP/htdocs/andries/wp-content/plugins/tailored-pages/js/accordion.js

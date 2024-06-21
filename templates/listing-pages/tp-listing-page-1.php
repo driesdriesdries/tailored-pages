@@ -48,6 +48,24 @@ get_header();
         } else {
             $associated_brand_id = $associated_brand_ids;
         }
+
+        // Initialize brand information variables
+        $google_fonts_script_url = '';
+        $font_family_name = '';
+
+        // Check if the associated brand ID exists
+        if ($associated_brand_id) {
+            // Retrieve Google Fonts script URL and font family name
+            $google_fonts_script_url = get_post_meta($associated_brand_id, 'google_fonts_script_url', true);
+            $font_family_name = get_post_meta($associated_brand_id, 'font_family_name', true);
+
+            // Include Font Partial
+            $font_partial_path = plugin_dir_path(dirname(__FILE__, 2)) . 'includes/public/font-inclusion.php';
+
+            if (file_exists($font_partial_path)) {
+                include $font_partial_path;
+            }
+        }
         ?>
 
         <section class="navbar-section">
